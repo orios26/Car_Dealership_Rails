@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Vehicle:</strong>
+  <%= @quote.vehicle %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @quote.customer %>
+</p>
+
+<p>
+  <strong>Sales person:</strong>
+  <%= @quote.sales_person %>
+</p>
+
+<p>
+  <strong>Wholesale price:</strong>
+  <%= @quote.wholesale_price %>
+</p>
+
+<p>
+  <strong>Markup price:</strong>
+  <%= @quote.markup_price %>
+</p>
+
+<p>
+  <strong>Total price:</strong>
+  <%= @quote.total_price %>
+</p>
+
+<%= link_to 'Edit', edit_quote_path(@quote) %> |
+<%= link_to 'Back', quotes_path %>

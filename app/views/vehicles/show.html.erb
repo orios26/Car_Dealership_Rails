@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Vin:</strong>
+  <%= @vehicle.vin %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @vehicle.color.name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @vehicle.type.name %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @vehicle.model.name %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @vehicle.year %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= number_to_currency(@vehicle.price) %>
+</p>
+
+<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
+<%= link_to 'Back', vehicles_path %>

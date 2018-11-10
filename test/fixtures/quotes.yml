@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vehicle: one
+  customer: one
+  sales_person: one
+  wholesale_price: 9.99
+  markup_price: 9.99
+  total_price: 9.99
+
+two:
+  vehicle: two
+  customer: two
+  sales_person: two
+  wholesale_price: 9.99
+  markup_price: 9.99
+  total_price: 9.99
