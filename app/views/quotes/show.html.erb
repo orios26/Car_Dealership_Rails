@@ -2,32 +2,32 @@
 
 <p>
   <strong>Vehicle:</strong>
-  <%= @quote.vehicle %>
+  <%= @quote.vehicle.vehicle_details %>
 </p>
 
 <p>
   <strong>Customer:</strong>
-  <%= @quote.customer %>
+  <%= @quote.customer.full_name %>
 </p>
 
 <p>
   <strong>Sales person:</strong>
-  <%= @quote.sales_person %>
+  <%= @quote.sales_person.full_name %>
 </p>
 
 <p>
   <strong>Wholesale price:</strong>
-  <%= @quote.wholesale_price %>
+  <%= number_to_currency(@quote.vehicle.price) %>
 </p>
 
 <p>
   <strong>Markup price:</strong>
-  <%= @quote.markup_price %>
+  <%= number_to_currency(@quote.markup_price) %>
 </p>
 
 <p>
   <strong>Total price:</strong>
-  <%= @quote.total_price %>
+  <%= number_to_currency(@quote.vehicle.price + @quote.markup_price) %>
 </p>
 
 <%= link_to 'Edit', edit_quote_path(@quote) %> |
