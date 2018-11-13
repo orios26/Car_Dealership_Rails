@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_10_182814) do
+ActiveRecord::Schema.define(version: 2018_11_13_215854) do
 
   create_table "colors", force: :cascade do |t|
     t.string "name"
@@ -58,6 +58,12 @@ ActiveRecord::Schema.define(version: 2018_11_10_182814) do
     t.decimal "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "tax"
+    t.decimal "down_payment"
+    t.decimal "interest_rate"
+    t.integer "term"
+    t.decimal "finance_amount"
+    t.decimal "monthly_payment"
     t.index ["customer_id"], name: "index_quotes_on_customer_id"
     t.index ["sales_person_id"], name: "index_quotes_on_sales_person_id"
     t.index ["vehicle_id"], name: "index_quotes_on_vehicle_id"

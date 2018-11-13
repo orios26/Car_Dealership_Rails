@@ -26,13 +26,8 @@
     <%= form.collection_select :sales_person_id, SalesPerson.all, :id, :full_name %>
   </div>
 
-  <div class="field">
-    <%= form.label :markup_price %>
-    <%= form.text_field :markup_price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :total_price %>
+  <div>
+    <h4>derived and calculated prices go here</h4>
   </div>
 
   <div class="actions">
