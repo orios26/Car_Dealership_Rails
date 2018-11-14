@@ -38,28 +38,28 @@ class QuoteTest < ActiveSupport::TestCase
     puts "interest rate: #{quotes(:tomacura).interest_rate}"
   end
 
-  test "number of payments should return 60" do
-    assert_equal(60, (quotes(:tomacura).number_payments))
+  test "number of payments should return 20" do
+    assert_equal(20, (quotes(:tomacura).number_payments))
     puts "number of payments: #{quotes(:tomacura).number_payments}"
   end
 
-  test "interest per pay period should be .00066667" do
-    assert_equal(0.667e-2, (quotes(:tomacura).i_rate))
+  test "interest per pay period should be .02" do
+    assert_equal(0.02, (quotes(:tomacura).i_rate))
     puts "interest per period: #{quotes(:tomacura).i_rate}"
   end
 
-  test "acura ammoritization numerator should be 215.64971" do
-    assert_equal(0.21564971e3, (quotes(:tomacura).ammoritization_numerator))
+  test "acura ammoritization numerator should be 644.80574" do
+    assert_equal(0.64480574e3, (quotes(:tomacura).ammoritization_numerator))
     puts "Ammortization numerator: #{quotes(:tomacura).ammoritization_numerator}"
   end
 
-  test "acura ammoritization denominator should be .49014" do
-    assert_equal(0.49014, (quotes(:tomacura).ammoritization_denominator))
+  test "acura ammoritization denominator should be .48595" do
+    assert_equal(0.48595, (quotes(:tomacura).ammoritization_denominator))
     puts "ammoritization_denominator: #{quotes(:tomacura).ammoritization_denominator}"
   end
 
-  test "ammortization payments should be 439.97574" do
-    assert_equal(0.43997574e3, quotes(:tomacura).ammortization_payments)
+  test "ammortization payments should be 1326.904404" do
+    assert_equal(0.132689729e4, quotes(:tomacura).ammortization_payments)
     puts "ammortization payments: #{quotes(:tomacura).ammortization_payments}"
   end
 

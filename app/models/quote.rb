@@ -3,7 +3,7 @@ class Quote < ApplicationRecord
   belongs_to :customer
   belongs_to :sales_person
   #setting quote compund period to a class variable
-  @@compound = 12
+  @@compound = 4
 
   def self.compound
     @@compound
