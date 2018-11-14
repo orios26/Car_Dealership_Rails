@@ -10,6 +10,7 @@ tomacura:
   down_payment: 2000.00
   finance_amount: 18988
   term: 5
+  interest_rate: 0.08
 
 two:
   vehicle: two
