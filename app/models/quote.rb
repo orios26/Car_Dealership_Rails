@@ -18,5 +18,9 @@ class Quote < ApplicationRecord
   def finance_amt
     total_amt - self.down_payment
   end
+  #
+  # def monthly_payment_amt
+  #   finance_amt((1 + (self.interest_rate/4))power(4 * self.term))
+  # end
 
 end
