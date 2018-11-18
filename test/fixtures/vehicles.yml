@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  vin: MyString
-  color: one
-  type: one
-  model: MyString
-  year: 1
-  price: 9.99
+audia:
+  vin: 145LFK4
+  color: blue
+  type: coupe
+  model: a4
+  year: 2016
+  price: 20000.00
 
-two:
-  vin: MyString
-  color: two
-  type: two
-  model: MyString
-  year: 1
-  price: 9.99
+acurat:
+  vin: JK6549LN
+  color: red
+  type: sedan
+  model: acura
+  year: 2015
+  price: 20998.00
