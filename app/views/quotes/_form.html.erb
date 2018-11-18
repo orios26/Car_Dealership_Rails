@@ -13,32 +13,26 @@
 
   <div class="field">
     <%= form.label :vehicle_id %>
-    <%= form.text_field :vehicle_id %>
+    <%= form.collection_select :vehicle_id, Vehicle.all, :id, :vehicle_details %>
   </div>
 
   <div class="field">
     <%= form.label :customer_id %>
-    <%= form.text_field :customer_id %>
+    <%= form.collection_select :customer_id, Customer.all, :id, :full_name %>
   </div>
 
   <div class="field">
     <%= form.label :sales_person_id %>
-    <%= form.text_field :sales_person_id %>
+    <%= form.collection_select :sales_person_id, SalesPerson.all, :id, :full_name %>
   </div>
 
   <div class="field">
-    <%= form.label :wholesale_price %>
-    <%= form.text_field :wholesale_price %>
+    <p>Price: <%= %></p>
+
   </div>
 
-  <div class="field">
-    <%= form.label :markup_price %>
-    <%= form.text_field :markup_price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :total_price %>
-    <%= form.text_field :total_price %>
+  <div>
+    <h4>derived and calculated prices go here</h4>
   </div>
 
   <div class="actions">

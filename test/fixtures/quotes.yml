@@ -1,12 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  vehicle: one
-  customer: one
-  sales_person: one
-  wholesale_price: 9.99
-  markup_price: 9.99
-  total_price: 9.99
+tomacura:
+  vehicle: acurat
+  customer: tom
+  sales_person: salesone
+  wholesale_price: 20988.00
+  markup_price: tomacura.mark_up_amt
+  total_price: tomacura.total_amt
+  down_payment: 2000.00
+  finance_amount: 18988
+  term: 5
+  interest_rate: 0.08
 
 two:
   vehicle: two

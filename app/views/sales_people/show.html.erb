@@ -12,7 +12,7 @@
 
 <p>
   <strong>Manager:</strong>
-  <%= @sales_person.manager %>
+  <%= @sales_person.manager.full_name %>
 </p>
 
 <%= link_to 'Edit', edit_sales_person_path(@sales_person) %> |
