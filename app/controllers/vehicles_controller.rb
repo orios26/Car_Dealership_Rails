@@ -5,6 +5,10 @@ class VehiclesController < ApplicationController
   # GET /vehicles.json
   def index
     @vehicles = Vehicle.all
+    if params[:search]
+      @search_term = params[:search]
+      @vehicles = @vehicles.search_by(@search_term)
+    end
   end
 
   # GET /vehicles/1

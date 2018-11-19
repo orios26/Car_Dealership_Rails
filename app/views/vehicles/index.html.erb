@@ -2,6 +2,11 @@
 
 <h1>Vehicles</h1>
 
+<%= form_for "", url: vehicles_path, role: "search", method: :get do %>
+  <%= text_field_tag :search, @search_term, placeholder: "Search..." %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+
 <table>
   <thead>
     <tr>

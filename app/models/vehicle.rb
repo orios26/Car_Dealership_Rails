@@ -25,5 +25,10 @@ class Vehicle < ApplicationRecord
     end
   end
 
+  def self.search_by(search_term)
+    where("LOWER(vin) LIKE :search_term OR LOWER(color) LIKE :search_term OR LOWER(model) LIKE :search_term",
+          search_term: "%#{search_term.downcase}%")
+  end
+
 end
 
