@@ -20,15 +20,6 @@
   <%= number_to_currency(@quote.vehicle.price) %>
 </p>
 
-<p>
-  <strong>Markup price:</strong>
-  <%= number_to_currency(@quote.markup_price) %>
-</p>
-
-<p>
-  <strong>Total price:</strong>
-  <%= number_to_currency(@quote.vehicle.price + @quote.markup_price) %>
-</p>
 
 <%= link_to 'Edit', edit_quote_path(@quote) %> |
 <%= link_to 'Back', quotes_path %>

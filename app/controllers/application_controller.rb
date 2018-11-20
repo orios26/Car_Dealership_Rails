@@ -1,10 +1,12 @@
 class ApplicationController < ActionController::Base
-  # before_action :authorize
+before_action :configure_permitted_parameters, if: :devise_controller?
 
+rescue_from CanCan::AccessDenied do |exception|
+  flash[:warning] = exception.message
+  redirect_to '/'
+end
   protected
-  def authorize
-    unless User.find_by(id: session[:user_id])
-      redirect_to login_url, notice: "Please Log In"
-    end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:role])
   end
 end
