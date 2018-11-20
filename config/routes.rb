@@ -1,14 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :accounts
+  devise_for :users
   get 'admin' => 'admin#index'
 
   #setting the vehicles index page as the home page
   root 'vehicles#index', as: 'vehicles_index'
-
-  controller :sessions do
-    get 'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
-  end
 
   resources :users
   resources :models
