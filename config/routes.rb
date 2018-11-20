@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get 'admin' => 'admin#index'
 
+  #setting the vehicles index page as the home page
+  root 'vehicles#index', as: 'vehicles_index'
+
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
