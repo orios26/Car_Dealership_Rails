@@ -15,6 +15,7 @@ class CustomersController < ApplicationController
   # GET /customers/new
   def new
     @customer = Customer.new
+    #authorize! :create, @customer, :message => "You do not have the proper authorization for this action!"
   end
 
   # GET /customers/1/edit

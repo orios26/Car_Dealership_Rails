@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 2.5'
 #Using devise gem for authentication
 gem 'devise'
 
+#using cancancan for authorization
+gem 'cancancan', '~> 2.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

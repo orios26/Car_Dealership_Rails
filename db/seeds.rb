@@ -8,8 +8,6 @@
     SalesPerson.destroy_all
     Manager.destroy_all
     ManagerType.destroy_all
-    User.destroy_all
-
     #color seeds
     Color.create!([{name: 'Black'}, {name: 'Blue'}, {name: 'Brown'}, {name: 'Gold'}, {name: 'Gray'}, {name: 'Green'},
                   {name: 'Orange'}, {name: 'Purple'}, {name: 'Red'}, {name: 'Silver'}, {name: 'Tan'}, {name: 'White'},
