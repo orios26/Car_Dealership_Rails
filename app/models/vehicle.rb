@@ -3,6 +3,7 @@ class Vehicle < ApplicationRecord
   belongs_to :type
   belongs_to :model
   has_many :quotes
+  has_one_attached :vehicle_image
 
   #validations
   validates :vin, presence: true, uniqueness: true
