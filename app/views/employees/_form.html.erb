@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :manager_id %>
-    <%= form.collection_select :manager_id, Employee.where.not(:id => 1), :id, :full_name, {:selected => ""} %>
+    <%= form.collection_select :manager_id, Employee.joins(:employee_type).where.not(:employee_type_id => 1), :id, :full_name, {:selected => ""} %>
   </div>
 
   <div class="actions">
