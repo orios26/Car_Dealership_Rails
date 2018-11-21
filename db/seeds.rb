@@ -5,9 +5,8 @@
     Color.destroy_all
     Type.destroy_all
     Model.destroy_all
-    SalesPerson.destroy_all
-    Manager.destroy_all
-    ManagerType.destroy_all
+    Employee.destroy_all
+    EmployeeType.destroy_all
     #color seeds
     Color.create!([{name: 'Black'}, {name: 'Blue'}, {name: 'Brown'}, {name: 'Gold'}, {name: 'Gray'}, {name: 'Green'},
                   {name: 'Orange'}, {name: 'Purple'}, {name: 'Red'}, {name: 'Silver'}, {name: 'Tan'}, {name: 'White'},
@@ -18,8 +17,8 @@
                  {name: 'Van/Minivan'}, {name: 'Convertible'}, {name: 'Wagon'}])
 
     #Manager type seeds
-    ManagerType.create!([{name: 'Sales Manager'}, {name: 'Finance Manager'}, {name: 'Inventory Manager'},
-                         {name: 'Dealership Owner'}])
+    EmployeeType.create!([{name: 'Sales Person'}, {name: 'Sales Manager'}, {name: 'Finance Manager'}, {name: 'Inventory Manager'},
+                         {name: 'Owner'}])
 
     #Model seeds
     Model.create!([{name: 'Audi A3'}, {name: 'Audi A4'}, {name: 'Audi A5'}, {name: 'Audi A6'}])
