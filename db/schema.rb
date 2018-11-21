@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_20_204641) do
+ActiveRecord::Schema.define(version: 2018_11_21_020638) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -62,19 +62,21 @@ ActiveRecord::Schema.define(version: 2018_11_20_204641) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "manager_types", force: :cascade do |t|
+  create_table "employee_types", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
   end
 
-  create_table "managers", force: :cascade do |t|
+  create_table "employees", force: :cascade do |t|
     t.string "last_name"
     t.string "first_name"
-    t.integer "manager_type_id"
+    t.integer "employee_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["manager_type_id"], name: "index_managers_on_manager_type_id"
+    t.integer "manager_id"
+    t.index ["employee_type_id"], name: "index_employees_on_employee_type_id"
+    t.index ["manager_id"], name: "index_employees_on_manager_id"
   end
 
   create_table "models", force: :cascade do |t|
@@ -98,18 +100,10 @@ ActiveRecord::Schema.define(version: 2018_11_20_204641) do
     t.decimal "tax", precision: 10, scale: 3
     t.decimal "down_payment", precision: 10, scale: 3
     t.decimal "interest_rate", precision: 10, scale: 3
+    t.integer "employee_id"
     t.index ["customer_id"], name: "index_quotes_on_customer_id"
-    t.index ["sales_person_id"], name: "index_quotes_on_sales_person_id"
+    t.index ["employee_id"], name: "index_quotes_on_employee_id"
     t.index ["vehicle_id"], name: "index_quotes_on_vehicle_id"
-  end
-
-  create_table "sales_people", force: :cascade do |t|
-    t.string "last_name"
-    t.string "first_name"
-    t.integer "manager_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["manager_id"], name: "index_sales_people_on_manager_id"
   end
 
   create_table "types", force: :cascade do |t|
