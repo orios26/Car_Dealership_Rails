@@ -1,4 +1,5 @@
 class Employee < ApplicationRecord
+  has_many :quotes
   #scope :ismanager, -> (id) {where(employee_id:).not(id)}
   belongs_to :employee_type
   has_many :subordinates, :class_name => "Employee",

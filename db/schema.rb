@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_21_020638) do
+ActiveRecord::Schema.define(version: 2018_11_21_222334) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -88,19 +88,16 @@ ActiveRecord::Schema.define(version: 2018_11_21_020638) do
   create_table "quotes", force: :cascade do |t|
     t.integer "vehicle_id"
     t.integer "customer_id"
-    t.integer "sales_person_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "employee_id"
     t.integer "term"
     t.decimal "finance_amount"
     t.decimal "monthly_payment"
-    t.decimal "wholesale_price", precision: 10, scale: 3
-    t.decimal "markup_price", precision: 10, scale: 3
-    t.decimal "total_price", precision: 10, scale: 3
-    t.decimal "tax", precision: 10, scale: 3
-    t.decimal "down_payment", precision: 10, scale: 3
-    t.decimal "interest_rate", precision: 10, scale: 3
-    t.integer "employee_id"
+    t.decimal "wholesale_price"
+    t.decimal "markup_price"
+    t.decimal "total_price"
+    t.decimal "tax"
+    t.decimal "down_payment"
+    t.decimal "interest_rate"
     t.index ["customer_id"], name: "index_quotes_on_customer_id"
     t.index ["employee_id"], name: "index_quotes_on_employee_id"
     t.index ["vehicle_id"], name: "index_quotes_on_vehicle_id"
