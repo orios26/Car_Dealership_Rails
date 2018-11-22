@@ -12,6 +12,11 @@ class QuotesController < ApplicationController
   def show
   end
 
+  def calculations
+    quote = Quote.find(params[:id])
+    render json: QuotePresenter.new(quote)
+  end
+
   # GET /quotes/new
   def new
     @quote = Quote.new
@@ -69,6 +74,6 @@ class QuotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quote_params
-      params.require(:quote).permit(:vehicle_id, :customer_id, :sales_person_id, :wholesale_price)
+      params.require(:quote).permit(:vehicle_id, :customer_id, :employee_id, :wholesale_price, :term, :markup_price, :tax, :total_price)
     end
 end

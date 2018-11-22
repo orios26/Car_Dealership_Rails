@@ -11,7 +11,11 @@ Rails.application.routes.draw do
 
   resources :users
   resources :models
-  resources :quotes
+  resources :quotes do
+    member do
+      get 'calculations'
+      end
+    end
   resources :sales_people
   resources :managers
   resources :vehicles

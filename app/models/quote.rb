@@ -1,12 +1,17 @@
 class Quote < ApplicationRecord
   belongs_to :vehicle
   belongs_to :customer
-  belongs_to :sales_person
+  belongs_to :employee
   #setting quote compund period to a class variable
   @@compound = 4
+  @@interest_rate = 0.08
 
   def self.compound
     @@compound
+  end
+
+  def self.interest_rate
+    @@interest_rate
   end
 
   #method to round to 5 significant digits
