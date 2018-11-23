@@ -10,4 +10,11 @@ class Customer < ApplicationRecord
   def full_name
     "#{last_name}, #{first_name}"
   end
+
+  def self.search_by(search_term)
+    where("LOWER(last_name) LIKE :search_term OR LOWER(first_name) LIKE :search_term
+    OR LOWER(address) LIKE :search_term OR LOWER(email) LIKE :search_term OR
+    LOWER(phone) LIKE :search_term ", search_term: "%#{search_term.downcase}%")
+  end
+
 end
