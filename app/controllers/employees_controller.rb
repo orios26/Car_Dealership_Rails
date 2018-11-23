@@ -5,6 +5,12 @@ class EmployeesController < ApplicationController
   # GET /employees.json
   def index
     @employees = Employee.all
+
+    if params[:search]
+      @search_term = params[:search]
+      @employees = @employees.search_by(@search_term)
+    end
+
   end
 
   # GET /employees/1

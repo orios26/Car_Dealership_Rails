@@ -2,6 +2,11 @@
 
 <h1>Employees</h1>
 
+<h3>Search Employee</h3>
+<%= form_for "", url: employees_path, role: "search", method: :get do %>
+  <%= text_field_tag :search, @search_term, placeholder: "Search Employee..." %>
+<% end %>
+
 <table>
   <thead>
     <tr>
