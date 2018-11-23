@@ -1,6 +1,7 @@
 class Employee < ApplicationRecord
   has_many :quotes
-  #scope :ismanager, -> (id) {where(employee_id:).not(id)}
+  scope :is_manager, -> {where.not(:employee_type_id => 1)}
+  scope :is_sales_manager, -> {where(:employee_type_id => 2)}
   belongs_to :employee_type
   has_many :subordinates, :class_name => "Employee",
   :foreign_key => "manager_id"

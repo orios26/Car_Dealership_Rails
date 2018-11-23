@@ -8,6 +8,9 @@ class VehiclesController < ApplicationController
     if params[:search]
       @search_term = params[:search]
       @vehicles = @vehicles.search_by(@search_term)
+      unless @vehicles
+        @vehicles = @vehicles.vehicle_color(:search)
+      end
     end
   end
 
