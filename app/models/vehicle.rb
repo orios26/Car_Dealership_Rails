@@ -5,6 +5,8 @@ class Vehicle < ApplicationRecord
   has_many :quotes
   has_one_attached :vehicle_image
 
+  scope :v_color, -> (color) {eager_load(:color).where("colors.name LIKE ?", "#{color}%")}
+
   #validations
   validates :vin, presence: true, uniqueness: true
   validates :price, numericality: {greater_than_or_equal_to: 0.01}

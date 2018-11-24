@@ -1,0 +1,11 @@
+<tr>
+  <td><%= quote.customer.full_name%></td>
+  <td><%= quote.vehicle.vehicle_details%></td>
+  <td><%= number_to_currency(quote.wholesale)%></td>
+  <td><%= number_to_currency(quote.mark_up_amt)%></td>
+  <td><%= number_to_currency(quote.tax_amt)%></td>
+  <td><%= number_to_currency(quote.total_amt)%></td>
+  <td><%= quote.term%></td>
+  <td><%= quote.number_payments%></td>
+  <td><%= number_to_currency(quote.ammortization_payments)%></td>
+</tr>

@@ -1,8 +1,4 @@
 <h1>Sales Reports</h1>
-
-<p>Find me in app/views/report/index.html.erb</p>
-
-
 <table>
   <thead>
     <tr>
@@ -14,13 +10,13 @@
     <% @employees.is_sales_manager.each do |employee| %>
       <tr>
         <td><%= employee.full_name %></td>
-        <td>Sales Team: <%= employee.subordinates.size%></td>
+        <td><%= employee.subordinates.size%></td>
       </tr>
       <% if employee.subordinates %>
       <% employee.subordinates.each do |subordinate| %>
       <tr>
         <td><%= subordinate.full_name %></td>
-        <td>Total Active Quotes <%= subordinate.quotes.size %></td>
+        <td>Active Quotes: <%= subordinate.quotes.size %></td>
       </tr>
       <% if subordinate.quotes %>
       <% subordinate.quotes.each do |quote| %>
@@ -34,7 +30,7 @@
             <th>Tax</th>
             <th>Total</th>
             <th>Term</th>
-            <th>Number of Payments</th>
+            <th># of Payments</th>
             <th>Monthly Payment</th>
           </tr>
         </thead>
@@ -42,17 +38,17 @@
           <tr>
             <td><%= quote.customer.full_name%></td>
             <td><%= quote.vehicle.vehicle_details%></td>
-            <td><%= quote.wholesale_price%></td>
-            <td><%= quote.markup_price%></td>
-            <td><%= quote.tax%></td>
-            <td><%= quote.total_price%></td>
+            <td><%= number_to_currency(quote.wholesale)%></td>
+            <td><%= number_to_currency(quote.mark_up_amt)%></td>
+            <td><%= number_to_currency(quote.tax_amt)%></td>
+            <td><%= number_to_currency(quote.total_amt)%></td>
             <td><%= quote.term%></td>
             <td><%= quote.number_payments%></td>
-            <td><%= quote.monthly_payment%></td>
+            <td><%= number_to_currency(quote.ammortization_payments)%></td>
           </tr>
         </tbody>
       </table>
-      <% end %>
+      <% end %><br>
       <% end %>
       <% end %>
       <% end %>
