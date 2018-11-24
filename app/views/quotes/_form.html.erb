@@ -22,17 +22,39 @@
   </div>
 
   <div class="field">
-    <%= form.label :sales_person_id %>
-    <%= form.collection_select :sales_person_id, SalesPerson.all, :id, :full_name %>
+    <%= form.label :employee_id %>
+    <%= form.collection_select :employee_id, Employee.joins(:employee_type).where(:employee_type_id => 1), :id, :full_name %>
   </div>
 
   <div class="field">
-    <p>Price: <%= %></p>
-
+    <%= form.label :term %>
+    <%= form.select :term, [['3 years', 3], ['4 years', 4], ['5 years', 5]] %>
   </div>
 
+  <div class="field">
+    <%= form.label :wholesale_price %>
+    <%= form.number_field :wholesale_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :markup_price %>
+    <%= form.number_field :markup_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tax %>
+    <%= form.number_field :tax %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_price %>
+    <%= form.number_field :total_price %>
+  </div>
+
+
+
   <div>
-    <h4>derived and calculated prices go here</h4>
+    <h4>eventually will use derived calculations</h4>
   </div>
 
   <div class="actions">

@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_19_183743) do
+ActiveRecord::Schema.define(version: 2018_11_21_222334) do
+
+  create_table "accounts", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "role"
+    t.index ["email"], name: "index_accounts_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -49,19 +62,21 @@ ActiveRecord::Schema.define(version: 2018_11_19_183743) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "manager_types", force: :cascade do |t|
+  create_table "employee_types", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
   end
 
-  create_table "managers", force: :cascade do |t|
+  create_table "employees", force: :cascade do |t|
     t.string "last_name"
     t.string "first_name"
-    t.integer "manager_type_id"
+    t.integer "employee_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["manager_type_id"], name: "index_managers_on_manager_type_id"
+    t.integer "manager_id"
+    t.index ["employee_type_id"], name: "index_employees_on_employee_type_id"
+    t.index ["manager_id"], name: "index_employees_on_manager_id"
   end
 
   create_table "models", force: :cascade do |t|
@@ -73,41 +88,23 @@ ActiveRecord::Schema.define(version: 2018_11_19_183743) do
   create_table "quotes", force: :cascade do |t|
     t.integer "vehicle_id"
     t.integer "customer_id"
-    t.integer "sales_person_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "employee_id"
     t.integer "term"
     t.decimal "finance_amount"
     t.decimal "monthly_payment"
-    t.decimal "wholesale_price", precision: 10, scale: 3
-    t.decimal "markup_price", precision: 10, scale: 3
-    t.decimal "total_price", precision: 10, scale: 3
-    t.decimal "tax", precision: 10, scale: 3
-    t.decimal "down_payment", precision: 10, scale: 3
-    t.decimal "interest_rate", precision: 10, scale: 3
+    t.decimal "wholesale_price"
+    t.decimal "markup_price"
+    t.decimal "total_price"
+    t.decimal "tax"
+    t.decimal "down_payment"
+    t.decimal "interest_rate"
     t.index ["customer_id"], name: "index_quotes_on_customer_id"
-    t.index ["sales_person_id"], name: "index_quotes_on_sales_person_id"
+    t.index ["employee_id"], name: "index_quotes_on_employee_id"
     t.index ["vehicle_id"], name: "index_quotes_on_vehicle_id"
-  end
-
-  create_table "sales_people", force: :cascade do |t|
-    t.string "last_name"
-    t.string "first_name"
-    t.integer "manager_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["manager_id"], name: "index_sales_people_on_manager_id"
   end
 
   create_table "types", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

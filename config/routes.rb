@@ -1,15 +1,21 @@
 Rails.application.routes.draw do
+  resources :employees
+  devise_for :accounts, controllers: {
+    sessions: 'accounts/sessions'
+  }
+  devise_for :users
   get 'admin' => 'admin#index'
 
-  controller :sessions do
-    get 'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
-  end
+  #setting the vehicles index page as the home page
+  root 'vehicles#index', as: 'vehicles_index'
 
   resources :users
   resources :models
-  resources :quotes
+  resources :quotes do
+    member do
+      get 'calculations'
+      end
+    end
   resources :sales_people
   resources :managers
   resources :vehicles

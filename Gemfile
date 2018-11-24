@@ -26,6 +26,12 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
 
+#Using devise gem for authentication
+gem 'devise'
+
+#using cancancan for authorization
+gem 'cancancan', '~> 2.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

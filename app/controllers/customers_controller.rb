@@ -5,6 +5,12 @@ class CustomersController < ApplicationController
   # GET /customers.json
   def index
     @customers = Customer.all
+
+    if params[:search]
+      @search_term = params[:search]
+      @customers = @customers.search_by(@search_term)
+    end
+
   end
 
   # GET /customers/1
@@ -15,6 +21,7 @@ class CustomersController < ApplicationController
   # GET /customers/new
   def new
     @customer = Customer.new
+    #authorize! :create, @customer, :message => "You do not have the proper authorization for this action!"
   end
 
   # GET /customers/1/edit
