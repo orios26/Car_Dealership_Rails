@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'report/index'
+  get 'sales_report/index'
   resources :employees
   devise_for :accounts, controllers: {
     sessions: 'accounts/sessions'
@@ -21,5 +23,6 @@ Rails.application.routes.draw do
   resources :vehicles
   resources :customers
 
+  get 'reports', to: 'report#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
