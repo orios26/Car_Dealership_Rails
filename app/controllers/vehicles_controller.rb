@@ -4,7 +4,7 @@ class VehiclesController < ApplicationController
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = Vehicle.all
+    @vehicles = Vehicle.paginate(:page => params[:page], per_page: 2)
     if params[:search]
       @search_term = params[:search]
       @vehicles = Vehicle.v_color(@search_term)

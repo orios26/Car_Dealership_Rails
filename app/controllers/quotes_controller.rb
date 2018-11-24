@@ -4,7 +4,7 @@ class QuotesController < ApplicationController
   # GET /quotes
   # GET /quotes.json
   def index
-    @quotes = Quote.all
+    @quotes = Quote.paginate(:page => params[:page], per_page: 2)
   end
 
   # GET /quotes/1
