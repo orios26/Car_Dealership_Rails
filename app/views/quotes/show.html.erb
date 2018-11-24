@@ -20,6 +20,37 @@
   <%= number_to_currency(@quote.vehicle.price) %>
 </p>
 
+<p>
+  <strong>Fees:</strong>
+  <%= number_to_currency(@quote.mark_up_amt) %>
+</p>
+
+<p>
+  <strong>Sales Tax:</strong>
+  <%= number_to_currency(@quote.tax_amt) %>
+</p>
+
+<p>
+  <strong>Interest Rate %:</strong>
+  <%= 100 * (Quote.interest_rate) %>
+</p>
+
+<p>
+  <strong>Term:</strong>
+  <%= @quote.term.to_i %>
+</p>
+
+<p>
+  <strong># of Payments:</strong>
+  <%= @quote.number_payments.to_i %>
+</p>
+
+<p>
+  <strong>Quartely Payment:</strong>
+  <%= number_to_currency(@quote.ammortization_payments) %>
+</p>
+
+
 
 <%= link_to 'Edit', edit_quote_path(@quote) %> |
 <%= link_to 'Back', quotes_path %>

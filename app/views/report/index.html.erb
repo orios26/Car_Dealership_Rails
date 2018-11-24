@@ -1,72 +1,72 @@
-  <h1>Sales Reports</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Sales Manager</th>
-        <th>Team Size</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @employees.each do |employee| %>
+    <h1>Sales Reports</h1>
+    <table>
+      <thead>
         <tr>
-          <td><%= employee.full_name %></td>
-          <td><%= employee.subordinates.size%></td>
+          <th>Sales Manager</th>
+          <th>Team Size</th>
         </tr>
-      </tbody>
-      </table>
-      <table>
-        <th>Sales Person</th>
-        <th>Quotes</th>
-        <tbody>
-        <% if employee.subordinates %>
-        <% employee.subordinates.each do |subordinate| %>
-        <tr>
-          <td><%= subordinate.full_name %></td>
-          <td><%= subordinate.quotes.size %></td>
-        </tr>
-      </tbody>
-        <% if subordinate.quotes %>
-        <% subordinate.quotes.each do |quote| %>
-        <table>
-          <thead>
-            <tr>
-              <th>Customer</th>
-              <th>Vehicle</th>
-              <th>Base Price</th>
-              <th>Fees</th>
-              <th>Tax</th>
-              <th>Total</th>
-              <th>Term</th>
-              <th># of Payments</th>
-              <th>Monthly Payment</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><%= quote.customer.full_name%></td>
-              <td><%= quote.vehicle.vehicle_details%></td>
-              <td><%= number_to_currency(quote.wholesale)%></td>
-              <td><%= number_to_currency(quote.mark_up_amt)%></td>
-              <td><%= number_to_currency(quote.tax_amt)%></td>
-              <td><%= number_to_currency(quote.total_amt)%></td>
-              <td><%= quote.term%></td>
-              <td><%= quote.number_payments%></td>
-              <td><%= number_to_currency(quote.ammortization_payments)%></td>
-            </tr>
-          </tbody>
+      </thead>
+      <tbody>
+        <% @employees.each do |employee| %>
+          <tr>
+            <td><%= employee.full_name %></td>
+            <td><%= employee.subordinates.size%></td>
+          </tr>
+        </tbody>
         </table>
+        <table>
+          <th>Sales Person</th>
+          <th>Quotes</th>
+          <tbody>
+          <% if employee.subordinates %>
+          <% employee.subordinates.each do |subordinate| %>
+          <tr>
+            <td><%= subordinate.full_name %></td>
+            <td><%= subordinate.quotes.size %></td>
+          </tr>
+        </tbody>
+          <% if subordinate.quotes %>
+          <% subordinate.quotes.each do |quote| %>
+          <table>
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Vehicle</th>
+                <th>Wholesale Price</th>
+                <th>Fees</th>
+                <th>Tax</th>
+                <th>Total</th>
+                <th>Term</th>
+                <th># of Payments</th>
+                <th>Quartely Payment</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= quote.customer.full_name%></td>
+                <td><%= quote.vehicle.vehicle_details%></td>
+                <td><%= number_to_currency(quote.wholesale)%></td>
+                <td><%= number_to_currency(quote.mark_up_amt)%></td>
+                <td><%= number_to_currency(quote.tax_amt)%></td>
+                <td><%= number_to_currency(quote.total_amt)%></td>
+                <td><%= quote.term%></td>
+                <td><%= quote.number_payments%></td>
+                <td><%= number_to_currency(quote.ammortization_payments)%></td>
+              </tr>
+            </tbody>
+          </table>
+          <% end %>
+          <% end %>
+          <tfoot>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+              <td></td>
+            <td></td>
+          </tfoot>
+        </table>
+          <% end %>
+          <% end %>
         <% end %>
-        <% end %>
-        <tfoot>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tfoot>
-      </table>
-        <% end %>
-        <% end %>
-      <% end %>

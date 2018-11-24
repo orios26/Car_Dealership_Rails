@@ -1,0 +1,21 @@
+<h1>Executive Summary</h1>
+<table>
+  <th>
+    <tr>
+      <td>Total Sales People</td>
+      <td>Total Sales</td>
+      <td>Gross Revenue</td>
+      <td>Net Profit</td>
+      <td>Tax Total</td>
+    </tr>
+  </th>
+  <tbody>
+    <tr>
+      <td><%=  %></td>
+      <td><%= @quotes.size%></td>
+      <td><%= number_to_currency(@quotes.to_a.sum(&:total_amt))%></td>
+      <td><%= number_to_currency(@quotes.to_a.sum(&:mark_up_amt))%></td>
+      <td><%= number_to_currency(@quotes.to_a.sum(&:tax_amt))%></td>
+    </tr>
+  </tbody>
+</table>

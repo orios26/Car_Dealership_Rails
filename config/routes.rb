@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'summary/index'
   get 'report/index'
   get 'sales_report/index'
   resources :employees
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
   resources :vehicles
   resources :customers
 
+  get 'summary', to: 'summary#index'
   get 'reports', to: 'report#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
