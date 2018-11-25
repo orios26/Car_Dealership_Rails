@@ -2,6 +2,11 @@
 
 <h1>Customers</h1>
 
+<h3>Search Customer</h3>
+<%= form_for "", url: customers_path, role: "search", method: :get do %>
+  <%= text_field_tag :search, @search_term, placeholder: "Search Customer..." %>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -33,3 +38,7 @@
 <br>
 
 <%= link_to 'New Customer', new_customer_path %>
+
+<br>
+
+<%= will_paginate @customers %>

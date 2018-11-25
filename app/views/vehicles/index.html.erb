@@ -2,6 +2,11 @@
 
 <h1>Vehicles</h1>
 
+<%= form_for "", url: vehicles_path, role: "search", method: :get do %>
+  <%= text_field_tag :search, @search_term, placeholder: "Search..." %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -24,6 +29,7 @@
         <td><%= vehicle.model.name %></td>
         <td><%= vehicle.year %></td>
         <td><%= number_to_currency(vehicle.price) %></td>
+        <td><%= number_to_currency(vehicle.price) %></td>
         <td><%= link_to 'Show', vehicle %></td>
         <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
         <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -35,3 +41,7 @@
 <br>
 
 <%= link_to 'New Vehicle', new_vehicle_path %>
+
+<br>
+
+<%= will_paginate @vehicles %>

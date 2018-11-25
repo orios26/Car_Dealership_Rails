@@ -4,7 +4,17 @@ class VehiclesController < ApplicationController
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = Vehicle.all
+    @vehicles = Vehicle.paginate(:page => params[:page], per_page: 2)
+    if params[:search]
+      @search_term = params[:search]
+      @vehicles = Vehicle.v_color(@search_term)
+       if @vehicles.blank?
+
+      # @vehicles = @vehicles.search_by(@search_term)
+      @vehilces = Vehicle.all
+    end
+
+    end
   end
 
   # GET /vehicles/1
@@ -69,6 +79,6 @@ class VehiclesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_params
-      params.require(:vehicle).permit(:vin, :color_id, :type_id, :model_id, :year, :price)
+      params.require(:vehicle).permit(:vin, :color_id, :type_id, :model_id, :year, :price, :vehicle_image, :name )
     end
 end

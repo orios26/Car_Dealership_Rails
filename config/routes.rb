@@ -1,19 +1,30 @@
 Rails.application.routes.draw do
+  get 'summary/index'
+  get 'report/index'
+  get 'sales_report/index'
+  resources :employees
+  devise_for :accounts, controllers: {
+    sessions: 'accounts/sessions'
+  }
+  devise_for :users
   get 'admin' => 'admin#index'
 
-  controller :sessions do
-    get 'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
-  end
+  #setting the vehicles index page as the home page
+  root 'vehicles#index', as: 'vehicles_index'
 
   resources :users
   resources :models
-  resources :quotes
+  resources :quotes do
+    member do
+      get 'calculations'
+      end
+    end
   resources :sales_people
   resources :managers
   resources :vehicles
   resources :customers
 
+  get 'summary', to: 'summary#index'
+  get 'reports', to: 'report#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

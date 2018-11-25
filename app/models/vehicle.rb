@@ -3,6 +3,9 @@ class Vehicle < ApplicationRecord
   belongs_to :type
   belongs_to :model
   has_many :quotes
+  has_one_attached :vehicle_image
+
+  scope :v_color, -> (color) {eager_load(:color).where("colors.name LIKE ?", "#{color}%")}
 
   #validations
   validates :vin, presence: true, uniqueness: true
@@ -25,5 +28,9 @@ class Vehicle < ApplicationRecord
     end
   end
 
-end
+  def self.search_by(search_term)
+    where("LOWER(vin) LIKE :search_term",
+          search_term: "%#{search_term.downcase}%")
+  end
 
+end

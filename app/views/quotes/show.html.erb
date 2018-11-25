@@ -11,8 +11,8 @@
 </p>
 
 <p>
-  <strong>Sales person:</strong>
-  <%= @quote.sales_person.full_name %>
+  <strong>Employee:</strong>
+  <%= @quote.employee.full_name %>
 </p>
 
 <p>
@@ -21,14 +21,36 @@
 </p>
 
 <p>
-  <strong>Markup price:</strong>
-  <%= number_to_currency(@quote.markup_price) %>
+  <strong>Fees:</strong>
+  <%= number_to_currency(@quote.mark_up_amt) %>
 </p>
 
 <p>
-  <strong>Total price:</strong>
-  <%= number_to_currency(@quote.vehicle.price + @quote.markup_price) %>
+  <strong>Sales Tax:</strong>
+  <%= number_to_currency(@quote.tax_amt) %>
 </p>
+
+<p>
+  <strong>Interest Rate %:</strong>
+  <%= 100 * (Quote.interest_rate) %>
+</p>
+
+<p>
+  <strong>Term:</strong>
+  <%= @quote.term.to_i %>
+</p>
+
+<p>
+  <strong># of Payments:</strong>
+  <%= @quote.number_payments.to_i %>
+</p>
+
+<p>
+  <strong>Quartely Payment:</strong>
+  <%= number_to_currency(@quote.ammortization_payments) %>
+</p>
+
+
 
 <%= link_to 'Edit', edit_quote_path(@quote) %> |
 <%= link_to 'Back', quotes_path %>
