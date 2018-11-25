@@ -6,7 +6,9 @@ class Vehicle < ApplicationRecord
   has_one_attached :vehicle_image
 
   scope :v_color, -> (color) {eager_load(:color).where("colors.name LIKE ?", "#{color}%")}
-  scope :is_sold, -> {eager_load(:quotes).where(:sold => false)}
+  scope :no_quote, -> {includes(:quotes).where(quotes: {id: nil})}
+  scope :quote_not_sold, -> {joins(:quotes).where(quotes: {sold: false})}
+
 
   #validations
   validates :vin, presence: true, uniqueness: true
@@ -18,7 +20,6 @@ class Vehicle < ApplicationRecord
   def vehicle_details
     "#{model.name}-#{vin}"
   end
-
 
   private
   #method to ensure vehicles with quotes cannot be deleted

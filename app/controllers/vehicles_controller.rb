@@ -4,17 +4,15 @@ class VehiclesController < ApplicationController
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = Vehicle.paginate(:page => params[:page], per_page: 2)
-    if params[:search]
-      @search_term = params[:search]
-      @vehicles = Vehicle.v_color(@search_term)
-       if @vehicles.blank?
+    @vehicles = Vehicle.quote_not_sold.paginate(:page =>  params[:page], per_page: 10)
+    #@vehicles = Vehicle.available.paginate(:page =>  params[:page], per_page: 10)
+    # @vehicles = Vehicle.paginate(:page => params[:page], per_page: 2)
+    # if params[:search]
+    #   @search_term = params[:search]
+    #   @vehicles = Vehicle.v_color(@search_term).paginate(:page => params[:page], per_page: 2)
+    #   # @vehicles = @vehicles.search_by(@search_term)
+    # end
 
-      # @vehicles = @vehicles.search_by(@search_term)
-      @vehilces = Vehicle.all
-    end
-
-    end
   end
 
   # GET /vehicles/1

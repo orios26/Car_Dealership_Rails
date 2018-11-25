@@ -4,7 +4,8 @@ class Quote < ApplicationRecord
   belongs_to :employee
 
 
-  scope :is_sold, -> {where sold: true}
+  scope :is_sold, -> {where(sold: true)}
+  scope :not_sold, -> {where(sold: false)}
   #setting quote compund period to a class variable
   @@compound = 4
   @@interest_rate = 0.08
