@@ -7,7 +7,11 @@ class Vehicle < ApplicationRecord
 
   scope :v_color, -> (color) {eager_load(:color).where("colors.name LIKE ?", "#{color}%")}
   scope :no_quote, -> {includes(:quotes).where(quotes: {id: nil})}
-  scope :quote_not_sold, -> {joins(:quotes).where(quotes: {sold: false})}
+  scope :quote_not_sold, -> {includes(:quotes).where(quotes: {sold: false})}
+  scope :available, -> {}
+  scope :v_vin, -> (vin) {where("vehicles.vin LIKE ?", "#{vin}")}
+  scope :v_model, -> (model) {eager_load(model).where("models.name LIKE ?", "#{model}")}
+  scope :search_bar, -> (search_term) {eager_load(Vehicle.v_color(search_term).or(Vehicle.v_vin(search_term).or(Vehicle.v_model(search_term))))}
 
 
   #validations
@@ -29,10 +33,10 @@ class Vehicle < ApplicationRecord
       throw :abort
     end
   end
-
-  def self.search_by(search_term)
-    where("LOWER(vin) LIKE :search_term",
-          search_term: "%#{search_term.downcase}%")
-  end
+  # 
+  # def self.search_by(search_term)
+  #   find_by_sql,
+  #         search_term: "%#{search_term.downcase}%")
+  # end
 
 end
