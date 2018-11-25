@@ -10,6 +10,17 @@ class QuotesController < ApplicationController
   # GET /quotes/1
   # GET /quotes/1.json
   def show
+    @quote = Quote.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = QuotePdf.new(@quote)
+
+        send_data pdf.render,
+          filename: "quote_#{@quote.id}-#{@quote.customer.full_name}#{@quote.vehicle.vehicle_details}",
+          type: 'application/pdf'
+      end
+    end
   end
 
   def calculations
