@@ -4,7 +4,7 @@ class VehiclesController < ApplicationController
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = Vehicle.quote_not_sold.or(Vehicle.no_quote).paginate(:page =>  params[:page], per_page: 10)
+    @vehicles = Vehicle.available.paginate(:page =>  params[:page], per_page: 10)
     #@vehicles = Vehicle.all.paginate(:page =>  params[:page], per_page: 10)
     # @vehicles = Vehicle.paginate(:page => params[:page], per_page: 2)
     if params[:search]
