@@ -4,7 +4,12 @@ class QuotesController < ApplicationController
   # GET /quotes
   # GET /quotes.json
   def index
-    @quotes = Quote.paginate(:page => params[:page], per_page: 2)
+    @quotes = Quote.all.paginate(:page => params[:page], per_page: 2)
+
+    if params[:search]
+      @search_term = params[:search]
+      @quotes = @quotes.search_by(@search_term).paginate(:page => params[:page], per_page: 1)
+    end
   end
 
   # GET /quotes/1
