@@ -26,7 +26,7 @@
           </tr>
         </tbody>
           <% if subordinate.quotes %>
-          <% subordinate.quotes.each do |quote| %>
+          <% subordinate.quotes.is_sold.each do |quote| %>
           <table>
             <thead>
               <tr>
@@ -63,7 +63,7 @@
             <td></td>
             <td></td>
             <td></td>
-              <td></td>
+            <td></td>
             <td></td>
           </tfoot>
         </table>

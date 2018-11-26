@@ -1,6 +1,6 @@
 class Summary
 
   def self.exec_summary
-    Quote.all
+    Quote.is_sold
   end
 end

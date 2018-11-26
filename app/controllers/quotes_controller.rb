@@ -10,6 +10,17 @@ class QuotesController < ApplicationController
   # GET /quotes/1
   # GET /quotes/1.json
   def show
+    @quote = Quote.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = QuotePdf.new(@quote)
+
+        send_data pdf.render,
+          filename: "quote_#{@quote.id}-#{@quote.customer.full_name}#{@quote.vehicle.vehicle_details}",
+          type: 'application/pdf'
+      end
+    end
   end
 
   def calculations
@@ -74,6 +85,6 @@ class QuotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quote_params
-      params.require(:quote).permit(:vehicle_id, :customer_id, :employee_id, :wholesale_price, :term, :markup_price, :tax, :total_price)
+      params.require(:quote).permit(:vehicle_id, :customer_id, :employee_id, :wholesale_price, :term, :markup_price, :tax, :total_price, :sold)
     end
 end
