@@ -4,11 +4,11 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.paginate(:page => params[:page], per_page: 2)
+    @customers = Customer.all.paginate(:page => params[:page], per_page: 2)
 
     if params[:search]
       @search_term = params[:search]
-      @customers = @customers.search_by(@search_term)
+      @customers = @customers.search_by(@search_term).paginate(:page => params[:page], per_page: 1)
     end
 
   end

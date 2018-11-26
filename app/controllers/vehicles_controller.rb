@@ -4,9 +4,8 @@ class VehiclesController < ApplicationController
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = Vehicle.available.paginate(:page =>  params[:page], per_page: 10)
+    @vehicles = Vehicle.available.paginate(:page => params[:page], per_page: 2)
     #@vehicles = Vehicle.all.paginate(:page =>  params[:page], per_page: 10)
-    # @vehicles = Vehicle.paginate(:page => params[:page], per_page: 2)
     if params[:search]
       @search_term = params[:search]
       # @vehicles = Vehicle.find_by_sql("SELECT * FROM vehicles WHERE vin LIKE #{@search_term}
@@ -16,7 +15,7 @@ class VehiclesController < ApplicationController
       # OR
       # SELECT * FROM vehicles
       # JOIN models on vehicles.model_id = models_id WHERE models.name LIKE #{@search_term}")
-      @vehicles = Vehicle.v_color(@search_term).paginate(:page =>  params[:page], per_page: 10)
+      @vehicles = Vehicle.v_color(@search_term).paginate(:page =>  params[:page], per_page: 1)
     #   @vehicles = Vehicle.v_color(@search_term).paginate(:page => params[:page], per_page: 2)
     #   # @vehicles = @vehicles.search_by(@search_term)
     end
