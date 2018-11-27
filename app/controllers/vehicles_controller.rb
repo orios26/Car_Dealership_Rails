@@ -22,6 +22,11 @@ class VehiclesController < ApplicationController
 
   end
 
+  def price
+    vehicle = Vehicle.find(params[:id])
+    render json: vehicle
+  end
+
   # GET /vehicles/1
   # GET /vehicles/1.json
   def show

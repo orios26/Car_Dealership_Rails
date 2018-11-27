@@ -29,15 +29,15 @@ class Quote < ApplicationRecord
 
   #methods for quote calculations
   def mark_up_amt
-    self.markup_price = (self.vehicle.price * 0.082)
+    rounder5(self.vehicle.price * 0.082)
   end
 
   def tax_amt
-    self.tax = rounder5((self.vehicle.price + mark_up_amt) * 0.043)
+    rounder5((self.vehicle.price + mark_up_amt) * 0.043)
   end
 
   def total_amt
-    self.total_price = rounder5(self.vehicle.price + mark_up_amt + tax_amt)
+    rounder5(self.vehicle.price + mark_up_amt + tax_amt)
   end
 
   def finance_amt
