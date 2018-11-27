@@ -4,7 +4,8 @@ class Quote < ApplicationRecord
   belongs_to :employee
 
 
-  scope :is_sold, -> {where sold: true}
+  scope :is_sold, -> {where(sold: true)}
+  scope :not_sold, -> {where(sold: false)}
   #setting quote compund period to a class variable
   @@compound = 4
   @@interest_rate = 0.08
@@ -28,15 +29,15 @@ class Quote < ApplicationRecord
 
   #methods for quote calculations
   def mark_up_amt
-    self.markup_price = (self.vehicle.price * 0.082)
+    rounder5(self.vehicle.price * 0.082)
   end
 
   def tax_amt
-    self.tax = rounder5((self.vehicle.price + mark_up_amt) * 0.043)
+    rounder5((self.vehicle.price + mark_up_amt) * 0.043)
   end
 
   def total_amt
-    self.total_price = rounder5(self.vehicle.price + mark_up_amt + tax_amt)
+    rounder5(self.vehicle.price + mark_up_amt + tax_amt)
   end
 
   def finance_amt
@@ -48,7 +49,7 @@ class Quote < ApplicationRecord
   end
 
   def number_payments
-    rounder5(self.term * Quote.compound)
+    (self.term * Quote.compound).to_i
   end
 
   def ammoritization_numerator

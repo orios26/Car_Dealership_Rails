@@ -29,12 +29,11 @@
   <strong>Price:</strong>
   <%= number_to_currency(@vehicle.price) %>
 </p>
-
+<%if @vehicle.vehicle_image.attached? %>
 <p>
   <strong>Vehicle Image:</strong>
   <%= image_tag @vehicle.vehicle_image %>
 </p>
-<%if @vehicle.vehicle_image.attached? %>
 <%end %>
 
 <%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |

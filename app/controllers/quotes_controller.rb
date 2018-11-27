@@ -4,12 +4,28 @@ class QuotesController < ApplicationController
   # GET /quotes
   # GET /quotes.json
   def index
-    @quotes = Quote.paginate(:page => params[:page], per_page: 2)
+    @quotes = Quote.not_sold.paginate(:page => params[:page], per_page: 2)
+
+    if params[:search]
+      @search_term = params[:search]
+      @quotes = @quotes.search_by(@search_term).paginate(:page => params[:page], per_page: 1)
+    end
   end
 
   # GET /quotes/1
   # GET /quotes/1.json
   def show
+    @quote = Quote.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = QuotePdf.new(@quote, view_context)
+
+        send_data pdf.render,
+          filename: "quote_#{@quote.id}-#{@quote.customer.full_name}#{@quote.vehicle.vehicle_details}",
+          type: 'application/pdf'
+      end
+    end
   end
 
   def calculations
@@ -74,6 +90,6 @@ class QuotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quote_params
-      params.require(:quote).permit(:vehicle_id, :customer_id, :employee_id, :wholesale_price, :term, :markup_price, :tax, :total_price)
+      params.require(:quote).permit(:vehicle_id, :customer_id, :employee_id, :wholesale_price, :term, :markup_price, :tax, :total_price, :sold)
     end
 end

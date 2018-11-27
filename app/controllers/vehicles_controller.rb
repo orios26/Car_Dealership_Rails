@@ -4,17 +4,27 @@ class VehiclesController < ApplicationController
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = Vehicle.paginate(:page => params[:page], per_page: 2)
+    @vehicles = Vehicle.available.paginate(:page => params[:page], per_page: 2)
+    #@vehicles = Vehicle.all.paginate(:page =>  params[:page], per_page: 10)
     if params[:search]
       @search_term = params[:search]
-      @vehicles = Vehicle.v_color(@search_term)
-       if @vehicles.blank?
-
-      # @vehicles = @vehicles.search_by(@search_term)
-      @vehilces = Vehicle.all
+      # @vehicles = Vehicle.find_by_sql("SELECT * FROM vehicles WHERE vin LIKE #{@search_term}
+      # OR
+      # SELECT * FROM vehicles
+      # JOIN colors ON vehicles.color_id = colors_id WHERE colors.name LIKE #{@search_term}
+      # OR
+      # SELECT * FROM vehicles
+      # JOIN models on vehicles.model_id = models_id WHERE models.name LIKE #{@search_term}")
+      @vehicles = Vehicle.v_vin(@search_term).paginate(:page =>  params[:page], per_page: 1)
+    #   @vehicles = Vehicle.v_color(@search_term).paginate(:page => params[:page], per_page: 2)
+    #   # @vehicles = @vehicles.search_by(@search_term)
     end
 
-    end
+  end
+
+  def price
+    vehicle = Vehicle.find(params[:id])
+    render json: vehicle
   end
 
   # GET /vehicles/1

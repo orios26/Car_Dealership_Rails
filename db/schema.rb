@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_24_064925) do
+ActiveRecord::Schema.define(version: 2018_11_25_223609) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 2018_11_24_064925) do
     t.decimal "tax"
     t.decimal "down_payment"
     t.decimal "interest_rate"
-    t.boolean "sold"
+    t.boolean "sold", default: false
     t.index ["customer_id"], name: "index_quotes_on_customer_id"
     t.index ["employee_id"], name: "index_quotes_on_employee_id"
     t.index ["vehicle_id"], name: "index_quotes_on_vehicle_id"

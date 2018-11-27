@@ -6,6 +6,13 @@ class Vehicle < ApplicationRecord
   has_one_attached :vehicle_image
 
   scope :v_color, -> (color) {eager_load(:color).where("colors.name LIKE ?", "#{color}%")}
+  scope :no_quote, -> {includes(:quotes).where(quotes: {id: nil})}
+  scope :quote_not_sold, -> {includes(:quotes).where(quotes: {sold: false})}
+  scope :available, -> {quote_not_sold.or(Vehicle.no_quote)}
+  scope :v_vin, -> (vin) {where("vehicles.vin LIKE ?", "#{vin}")}
+  scope :v_model, -> (model) {eager_load(:model).where("models.name LIKE ?", "#{model}")}
+  scope :search_bar, -> (search_term) {eager_load(Vehicle.v_color(search_term).or(eager_load(Vehicle.v_model(search_term))))}
+
 
   #validations
   validates :vin, presence: true, uniqueness: true
@@ -18,7 +25,6 @@ class Vehicle < ApplicationRecord
     "#{model.name}-#{vin}"
   end
 
-
   private
   #method to ensure vehicles with quotes cannot be deleted
   def ensure_not_referenced_by_quptes
@@ -28,9 +34,10 @@ class Vehicle < ApplicationRecord
     end
   end
 
-  def self.search_by(search_term)
-    where("LOWER(vin) LIKE :search_term",
-          search_term: "%#{search_term.downcase}%")
-  end
+  #
+  # def self.search_by(search_term)
+  #   find_by_sql,
+  #         search_term: "%#{search_term.downcase}%")
+  # end
 
 end

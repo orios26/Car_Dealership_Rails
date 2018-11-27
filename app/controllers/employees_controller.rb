@@ -4,11 +4,11 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    @employees = Employee.paginate(:page => params[:page], per_page: 2)
+    @employees = Employee.all.paginate(:page => params[:page], per_page: 2)
 
     if params[:search]
       @search_term = params[:search]
-      @employees = @employees.search_by(@search_term)
+      @employees = @employees.search_by(@search_term).paginate(:page => params[:page], per_page: 1)
     end
 
   end
