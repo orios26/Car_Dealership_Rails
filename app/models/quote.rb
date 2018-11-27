@@ -49,7 +49,7 @@ class Quote < ApplicationRecord
   end
 
   def number_payments
-    rounder5(self.term * Quote.compound)
+    (self.term * Quote.compound).to_i
   end
 
   def ammoritization_numerator

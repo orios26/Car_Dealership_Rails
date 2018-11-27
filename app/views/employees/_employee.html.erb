@@ -1,0 +1,31 @@
+<table>
+  <thead>
+    <% if employee.employee_type_id == 2 %>
+    <tr>
+      <td><strong>Manager Name</strong></td>
+      <td><strong>Team Size</strong></td>
+    </tr>
+    <% else %>
+    <tr>
+      <td><strong>Sales Person</strong></td>
+      <td><strong>Finalized Quotes</strong></td>
+    </tr>
+  </thead>
+  <% end %>
+  <tbody>
+    <tr>
+      <td><%= employee.full_name %></td>
+      <% if employee.employee_type_id == 2 %>
+      <td><%= employee.subordinates.size %></td>
+      <% else %>
+      <td><%= employee.quotes.is_sold.size %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+<% if employee.subordinates %>
+<%= render employee.subordinates %>
+<% end %>
+<% if employee.quotes %>
+<%= render employee.quotes.is_sold %>
+<% end %>
