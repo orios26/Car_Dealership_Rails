@@ -11,7 +11,7 @@
   </th>
   <tbody>
     <tr>
-      <td><%=  %></td>
+      <td><%= @sales_people.size %></td>
       <td><%= @quotes.size%></td>
       <td><%= number_to_currency(@quotes.to_a.sum(&:total_amt))%></td>
       <td><%= number_to_currency(@quotes.to_a.sum(&:mark_up_amt))%></td>

@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :vehicle_id %>
-    <%= form.collection_select :vehicle_id, Vehicle.all, :id, :vehicle_details %>
+    <%= form.collection_select :vehicle_id, Vehicle.available, :id, :vehicle_details %>
     <p>Base Price <span id="price"></span></p>
   </div>
 

@@ -1,11 +1,28 @@
-<tr>
-  <td><%= quote.customer.full_name%></td>
-  <td><%= quote.vehicle.vehicle_details%></td>
-  <td><%= number_to_currency(quote.wholesale)%></td>
-  <td><%= number_to_currency(quote.mark_up_amt)%></td>
-  <td><%= number_to_currency(quote.tax_amt)%></td>
-  <td><%= number_to_currency(quote.total_amt)%></td>
-  <td><%= quote.term%></td>
-  <td><%= quote.number_payments%></td>
-  <td><%= number_to_currency(quote.ammortization_payments)%></td>
-</tr>
+<table>
+  <thead>
+    <tr>
+      <td>Customer</td>
+      <td>Vehicle</td>
+      <td>Base Price</td>
+      <td>Fees</td>
+      <td>Tax</td>
+      <td>Total Price</td>
+      <td>Term</td>
+      <td># of payments</td>
+      <td>Quarterly Payments</td>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= quote.customer.full_name%></td>
+    <td><%= quote.vehicle.vehicle_details%></td>
+    <td><%= number_to_currency(quote.wholesale)%></td>
+    <td><%= number_to_currency(quote.mark_up_amt)%></td>
+    <td><%= number_to_currency(quote.tax_amt)%></td>
+    <td><%= number_to_currency(quote.total_amt)%></td>
+    <td><%= quote.term%></td>
+    <td><%= quote.number_payments%></td>
+    <td><%= number_to_currency(quote.ammortization_payments)%></td>
+  </tr>
+</tbody>
+</table>

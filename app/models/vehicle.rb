@@ -10,8 +10,8 @@ class Vehicle < ApplicationRecord
   scope :quote_not_sold, -> {includes(:quotes).where(quotes: {sold: false})}
   scope :available, -> {quote_not_sold.or(Vehicle.no_quote)}
   scope :v_vin, -> (vin) {where("vehicles.vin LIKE ?", "#{vin}")}
-  scope :v_model, -> (model) {eager_load(model).where("models.name LIKE ?", "#{model}")}
-  scope :search_bar, -> (search_term) {eager_load(Vehicle.v_color(search_term).or(Vehicle.v_vin(search_term).or(Vehicle.v_model(search_term))))}
+  scope :v_model, -> (model) {eager_load(:model).where("models.name LIKE ?", "#{model}")}
+  scope :search_bar, -> (search_term) {eager_load(Vehicle.v_color(search_term).or(eager_load(Vehicle.v_model(search_term))))}
 
 
   #validations

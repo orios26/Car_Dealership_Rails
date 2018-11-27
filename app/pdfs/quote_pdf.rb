@@ -17,7 +17,11 @@ class QuotePdf < Prawn::Document
   def monetize(n)
     @view.number_to_currency(n)
   end
-ss
+
+  def percentage(n)
+    @view.number_to_percentage(n *100, precision: 0)
+  end
+
   def quote_details
     move_down 20
     text "Wholesale Price:", style: :bold
@@ -29,11 +33,11 @@ ss
     text "Total Price:", style: :bold
     text "#{monetize(@quote.total_amt)}"
     text "Interest Rate:", style: :bold
-    text "#{number_to_percentage(Quote.interest_rate)}"
+    text "#{percentage(Quote.interest_rate)}"
     text "Term:", style: :bold
     text "#{@quote.term} years"
     text "# of Payments:", style: :bold
-    text "#{monetize(@quote.number_payments)}"
+    text "#{@quote.number_payments.to_i}"
     text "Quartely Payments:", style: :bold
     text "#{monetize(@quote.ammortization_payments)}"
   end
