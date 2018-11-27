@@ -1,9 +1,9 @@
 <table>
   <thead>
-    <% if employee.employee_type_id == 2 %>
+    <% if employee.employee_type.name == 'Sales Manager' %>
     <tr>
-      <td><strong>Manager Name</strong></td>
-      <td><strong>Team Size</strong></td>
+      <td>Manager Name</td>
+      <td>Team Size</td>
     </tr>
     <% else %>
     <tr>
@@ -15,7 +15,7 @@
   <tbody>
     <tr>
       <td><%= employee.full_name %></td>
-      <% if employee.employee_type_id == 2 %>
+      <% if employee.employee_type.name == 'Sales Manager' %>
       <td><%= employee.subordinates.size %></td>
       <% else %>
       <td><%= employee.quotes.is_sold.size %></td>
@@ -25,7 +25,7 @@
 </table>
 <% if employee.subordinates %>
 <%= render employee.subordinates %>
-<% end %>
-<% if employee.quotes %>
-<%= render employee.quotes.is_sold %>
+  <% if employee.quotes %>
+  <%= render employee.quotes.is_sold %>
+  <% end %>
 <% end %>
