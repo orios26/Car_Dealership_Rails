@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :employee_id %>
-    <%= form.collection_select :employee_id, Employee.joins(:employee_type).where(:employee_type_id => 1), :id, :full_name %>
+    <%= form.collection_select :employee_id, Employee.all, :id, :full_name %>
   </div>
 
   <div class="field">

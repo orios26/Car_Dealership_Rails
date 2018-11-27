@@ -19,7 +19,7 @@ class QuotesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = QuotePdf.new(@quote)
+        pdf = QuotePdf.new(@quote, view_context)
 
         send_data pdf.render,
           filename: "quote_#{@quote.id}-#{@quote.customer.full_name}#{@quote.vehicle.vehicle_details}",

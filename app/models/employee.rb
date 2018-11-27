@@ -7,6 +7,8 @@ class Employee < ApplicationRecord
   :foreign_key => "manager_id"
   belongs_to :manager, :optional => true, :class_name => "Employee"
 
+
+
   def full_name
     "#{last_name}, #{first_name}"
   end

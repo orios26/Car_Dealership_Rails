@@ -1,9 +1,10 @@
 class QuotePdf < Prawn::Document
 
-  def initialize(quote)
+  def initialize(quote, view)
     super(top_margin: 70)
     @quote = quote
-    text "Quote #{@quote.id}"
+    @view = view
+    text "Quote: ##{@quote.id}"
     quote_header
     quote_details
   end
@@ -13,24 +14,28 @@ class QuotePdf < Prawn::Document
     text "Sales Person: #{@quote.employee.full_name}"
   end
 
+  def monetize(n)
+    @view.number_to_currency(n)
+  end
+ss
   def quote_details
     move_down 20
     text "Wholesale Price:", style: :bold
-    text "$#{@quote.vehicle.price}"
+    text "#{monetize(@quote.vehicle.price)}"
     text "Fees:", style: :bold
-    text "#{@quote.mark_up_amt}"
+    text "#{monetize(@quote.mark_up_amt)}"
     text "Sales Tax:", style: :bold
-    text "#{@quote.tax_amt}"
+    text "#{monetize(@quote.tax_amt)}"
     text "Total Price:", style: :bold
-    text "#{@quote.total_amt}"
+    text "#{monetize(@quote.total_amt)}"
     text "Interest Rate:", style: :bold
-    text "#{Quote.interest_rate}"
+    text "#{number_to_percentage(Quote.interest_rate)}"
     text "Term:", style: :bold
-    text "#{@quote.term}"
+    text "#{@quote.term} years"
     text "# of Payments:", style: :bold
-    text "#{@quote.number_payments}"
+    text "#{monetize(@quote.number_payments)}"
     text "Quartely Payments:", style: :bold
-    text "#{@quote.ammortization_payments}"
+    text "#{monetize(@quote.ammortization_payments)}"
   end
 
 end
