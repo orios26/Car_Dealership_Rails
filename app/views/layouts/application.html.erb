@@ -12,7 +12,12 @@
   <body>
   <div class="grid-containter">
     <%= render 'layouts/form_nav' %>
-    <%= render 'layouts/form_menu' %>
+    <nav>
+      <%= render 'layouts/form_menu' %>
+      <% if account_signed_in?%>
+      <%= render MenuPresenter.which_menu(current_account.role) %>
+      <% end %>
+    </nav>
     <%= yield %>
   </div>
   </body>
