@@ -21,7 +21,11 @@ Rails.application.routes.draw do
     end
   resources :sales_people
   resources :managers
-  resources :vehicles
+  resources :vehicles do
+    member do
+      get 'price'
+    end
+  end
   resources :customers
 
   get 'summary', to: 'summary#index'
