@@ -49,6 +49,39 @@
   <strong>Quartely Payment:</strong>
   <%= number_to_currency(@quote.ammortization_payments) %>
 </p>
+<% if current_account.role == 'finance' %>
+<p>Ammoritization Schedule for Vehicle</p>
+<table>
+  <thead>
+    <tr>
+      <td>Payment</td>
+      <td>Starting Balance</td>
+      <td>Interest</td>
+      <td>Principal</td>
+      <td>Remaining Balance</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% i = 1 %>
+    <% balance = @quote.total_amt%>
+    <% interest = @quote.a_interest(balance)%>
+    <% prin = @quote.ammortization_payments - interest %>
+    <% @quote.number_payments.times do %>
+    <tr>
+      <td><%= i %></td>
+      <td><%= number_to_currency(balance) %></td>
+      <td><%= number_to_currency(interest)%></td>
+      <td><%= number_to_currency(prin) %></td>
+      <td><%= number_to_currency(balance - prin) %></td>
+    </tr>
+    <% balance = (balance - prin) %>
+    <% interest = @quote.a_interest(balance)%>
+    <% prin = @quote.ammortization_payments - interest%>
+    <% i += 1 %>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
 
 
 <%= link_to 'PDF', quote_path(@quote, format: 'pdf') %> |
