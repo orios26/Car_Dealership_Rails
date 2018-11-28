@@ -17,18 +17,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :color_id %>
-    <%= form.collection_select :color_id, Color.all, :id, :name %>
+    <%= form.label :color %>
+    <%= form.select :color, [['Black'], ['Blue'], ['Red'], ['Gray'], ['Yellow'], ['Green'], ['Orange']] %>
   </div>
 
   <div class="field">
-    <%= form.label :type_id %>
-    <%= form.collection_select :type_id, Type.all, :id, :name %>
+    <%= form.label :make %>
+    <%= form.select :make, [['Toyota'], ['Honda'], ['Nissan'], ['Ford'], ['Chevrolet'], ['Dodge']] %>
   </div>
 
   <div class="field">
-    <%= form.label :model_id %>
-    <%= form.collection_select :model_id, Model.all, :id, :name %>
+    <%= form.label :model %>
+    <%= form.text_field :model %>
   </div>
 
   <div class="field">

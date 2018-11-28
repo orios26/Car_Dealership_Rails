@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_25_223609) do
+ActiveRecord::Schema.define(version: 2018_11_28_174232) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -46,12 +46,6 @@ ActiveRecord::Schema.define(version: 2018_11_25_223609) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "colors", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "customers", force: :cascade do |t|
     t.string "last_name"
     t.string "first_name"
@@ -79,12 +73,6 @@ ActiveRecord::Schema.define(version: 2018_11_25_223609) do
     t.index ["manager_id"], name: "index_employees_on_manager_id"
   end
 
-  create_table "models", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "quotes", force: :cascade do |t|
     t.integer "vehicle_id"
     t.integer "customer_id"
@@ -104,24 +92,16 @@ ActiveRecord::Schema.define(version: 2018_11_25_223609) do
     t.index ["vehicle_id"], name: "index_quotes_on_vehicle_id"
   end
 
-  create_table "types", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "vehicles", force: :cascade do |t|
     t.string "vin"
-    t.integer "color_id"
-    t.integer "type_id"
     t.integer "year"
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "model_id"
-    t.index ["color_id"], name: "index_vehicles_on_color_id"
-    t.index ["model_id"], name: "index_vehicles_on_model_id"
-    t.index ["type_id"], name: "index_vehicles_on_type_id"
+    t.string "make"
+    t.string "model"
+    t.string "color"
+    t.string "car_type"
   end
 
 end
