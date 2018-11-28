@@ -61,7 +61,7 @@ class Quote < ApplicationRecord
   end
 
   def ammortization_payments
-    self.monthly_payment = rounder5(ammoritization_numerator/ ammoritization_denominator)
+    rounder5(ammoritization_numerator/ ammoritization_denominator)
   end
 
 end

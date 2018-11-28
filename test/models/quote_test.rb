@@ -23,11 +23,6 @@ class QuoteTest < ActiveSupport::TestCase
     puts "total: #{quotes(:tomacura).total_amt}"
   end
 
-  test "acura total price minus down payment should be 18988" do
-    assert_equal(0.2169678895e5, (quotes(:tomacura).finance_amt))
-    puts "finance: #{quotes(:tomacura).finance_amt}"
-  end
-
   test "acura term should be 5" do
     assert_equal(5, (quotes(:tomacura).term))
     puts "term: #{quotes(:tomacura).term}"
@@ -48,8 +43,8 @@ class QuoteTest < ActiveSupport::TestCase
     puts "interest per period: #{quotes(:tomacura).i_rate}"
   end
 
-  test "acura ammoritization numerator should be 644.80574" do
-    assert_equal(0.64480574e3, (quotes(:tomacura).ammoritization_numerator))
+  test "acura ammoritization numerator should be 704.24363" do
+    assert_equal(0.70424364e3, (quotes(:tomacura).ammoritization_numerator))
     puts "Ammortization numerator: #{quotes(:tomacura).ammoritization_numerator}"
   end
 
@@ -58,8 +53,8 @@ class QuoteTest < ActiveSupport::TestCase
     puts "ammoritization_denominator: #{quotes(:tomacura).ammoritization_denominator}"
   end
 
-  test "ammortization payments should be 1326.904404" do
-    assert_equal(0.132689729e4, quotes(:tomacura).ammortization_payments)
+  test "ammortization payments should be 1449.21784" do
+    assert_equal(0.144921008e4, quotes(:tomacura).ammortization_payments)
     puts "ammortization payments: #{quotes(:tomacura).ammortization_payments}"
   end
 
