@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  last_name: MyString
-  first_name: MyString
-  employee_type: one
+rob:
+  last_name: Roberto
+  first_name: Rob
+  employee_type: sales_person
 
-two:
-  last_name: MyString
-  first_name: MyString
-  employee_type: two
+phil:
+  last_name: Collins
+  first_name: Phile
+  employee_type: sales_manager
