@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'finance/index'
+  get 'finance/show'
   get 'summary/index'
   get 'report/index'
   get 'sales_report/index'

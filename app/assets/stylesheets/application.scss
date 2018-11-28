@@ -13,8 +13,8 @@
  *= require_tree .
  *= require_self
  */
-// $blue: #3f67a8;
-// $hover-blue: #39537a;
+$blue: #3f67a8;
+$hover-blue: #39537a;
 //
 // html{
 //  width: 100%;
@@ -47,25 +47,25 @@
 //      font-size: 1em !important;
 //    }
 //  }
-//  .menu{
-//    grid-column: 1/2;
-//    grid-row: 2/4;
-//    background: #566884;
-//    display: flex;
-//    flex-direction: column;
-//    a{
-//      text-align: center;
-//      text-decoration: none;
-//      color: whitesmoke;
-//      font-size: 1.5rem;
-//      padding-top: .5em;
-//      padding-bottom: .5em;
-//      margin-bottom: .3em;
-//    }
-//    a:hover{
-//      background: $hover-blue;
-//    }
-//  }
+ // #menu{
+ //   background: #566884;
+ //   display: flex;
+ //   display: inline;
+ //   flex-direction: column;
+ //   width: 10em;
+ //   a{
+ //     text-align: center;
+ //     text-decoration: none;
+ //     color: whitesmoke;
+ //     font-size: 1.5rem;
+ //     padding-top: .5em;
+ //     padding-bottom: .5em;
+ //     margin-bottom: .3em;
+ //   }
+ //   a:hover{
+ //     background: $hover-blue;
+ //   }
+ // }
 // }
 // #notice{
 //  display: none;

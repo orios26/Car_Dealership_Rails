@@ -19,7 +19,7 @@ class Vehicle < ApplicationRecord
 
   #method to return vehicle details in collection select
   def vehicle_details
-    "#{model.name}-#{vin}"
+    "#{year}-#{make}-#{model}"
   end
 
   private
