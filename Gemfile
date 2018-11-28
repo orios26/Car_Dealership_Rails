@@ -38,9 +38,6 @@ gem 'devise'
 #using cancancan for authorization
 gem 'cancancan', '~> 2.0'
 
-#faker gem for fake data
-gem 'faker'
-
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
