@@ -73,3 +73,6 @@ gem 'mini_magick'
 
 # Gemfile for Rails 3+, Sinatra, and Merb
 gem 'will_paginate', '~> 3.1.1'
+
+# Gemfile for Fake data
+gem 'faker', '~> 1.9', '>= 1.9.1'

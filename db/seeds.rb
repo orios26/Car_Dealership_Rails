@@ -6,6 +6,7 @@
     Employee.destroy_all
     EmployeeType.destroy_all
     Account.destroy_all
+    Vehicle.destroy_all
     #
     # #Employee Type seeds
     salesperson = EmployeeType.create!(name: 'Sales Person')
@@ -30,11 +31,30 @@
       {email: 'sallysales@vehicyou.com', password: 'salesale', password_confirmation: 'salesale', role: 'salesp'},
       {email: 'philc@vehicyou.com', password: 'icanfeelit', password_confirmation: 'icanfeelit', role: 'salesm'},
       {email: 'clarar@vehicyou.com', password: 'financee', password_confirmation: 'financee', role: 'finance'},
-      {email: 'patd@vehicyou.com', password: 'inventory', password_confirmation: 'inventory', role: 'inventory'}
+      {email: 'patd@vehicyou.com', password: 'inventory', password_confirmation: 'inventory', role: 'inventory'},
+      {email: 'ahmadskaikay@yahoo.com', password: 'sky12424', password_confirmation: 'sky12424', role: 'admin'}
       ])
 
     #Customer seeds
-    Customer.create!(last_name: 'Grasser', first_name: 'Therin', address: '599 Superior Lane', email: 'tgrasser0@google.com.br', phone: '700-164-4589')
-    Customer.create!(last_name: 'Draycott', first_name: 'Salvatore', address: '3760 South Alley', email: 'sdraycott1@domainmarket.com', phone: '405-355-2287')
-    Customer.create!(last_name: 'Sigfrid', first_name: 'Cristol', address: '60 Stephen Trail', email: 'scristol2@google.com', phone: '645-911-1532')
-    Customer.create!(last_name: 'Brand', first_name: 'Davine', address: '2 Northview Crossing', email: 'dbrand2@china.com.cn', phone: '287-936-2554')
+    100.times do
+        Customer.create([{
+                             last_name: Faker::Name.last_name,
+                             first_name: Faker::Name.first_name,
+                             address: Faker::Address.full_address,
+                             email: Faker::Internet.email,
+                             phone: Faker::PhoneNumber.phone_number
+                         }])
+    end
+
+
+    #Vehicle seeds
+    100.times do
+        Vehicle.create([{
+                            vin: Faker::Vehicle.vin,
+                            color: Faker::Vehicle.color,
+                            make: Faker::Vehicle.make,
+                            model: Faker::Vehicle.model,
+                            year: Faker::Vehicle.year,
+                            price: Faker::Commerce.price(range = 9640.99..617899.99, as_string = false)
+                        }])
+    end
