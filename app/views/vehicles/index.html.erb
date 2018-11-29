@@ -29,7 +29,6 @@
         <td><%= vehicle.model %></td>
         <td><%= vehicle.year %></td>
         <td><%= number_to_currency(vehicle.price) %></td>
-        <td><%= number_to_currency(vehicle.price) %></td>
         <td><%= link_to 'Show', vehicle %></td>
         <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
         <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
