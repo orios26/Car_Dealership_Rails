@@ -4,10 +4,10 @@ class VehiclesController < ApplicationController
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = Vehicle.available.paginate(:page => params[:page], per_page: 2)
+    @vehicles = Vehicle.available.paginate(:page => params[:page], per_page: 50)
     if params[:search]
       @search_term = params[:search]
-      @vehicles = Vehicle.search_by(@search_term).paginate(:page =>  params[:page], per_page: 1)
+      @vehicles = Vehicle.search_by(@search_term).paginate(:page =>  params[:page], per_page: 50)
     end
 
   end
