@@ -12,7 +12,7 @@
   <body>
   <div class="grid-containter">
     <%= render 'layouts/form_nav' %>
-    <nav>
+    <nav id="menu">
       <%= render 'layouts/form_menu' %>
       <% if account_signed_in?%>
       <%= render MenuPresenter.which_menu(current_account.role) %>

@@ -10,7 +10,7 @@ class MenuPresenter
     when 'salesm'
       'layouts/sales_manager_menu'
     when 'finance'
-      'layouts/finance_menu'
+      'layouts/finance_manager_menu'
     when 'inventory'
       'layouts/inventory_manager_menu'
     when 'admin'

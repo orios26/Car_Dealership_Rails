@@ -12,7 +12,7 @@
     <tr>
       <th>Vin</th>
       <th>Color</th>
-      <th>Type</th>
+      <th>Make</th>
       <th>Model</th>
       <th>Year</th>
       <th>Price</th>
@@ -24,11 +24,10 @@
     <% @vehicles.each do |vehicle| %>
       <tr>
         <td><%= vehicle.vin %></td>
-        <td><%= vehicle.color.name %></td>
-        <td><%= vehicle.type.name %></td>
-        <td><%= vehicle.model.name %></td>
+        <td><%= vehicle.color %></td>
+        <td><%= vehicle.make %></td>
+        <td><%= vehicle.model %></td>
         <td><%= vehicle.year %></td>
-        <td><%= number_to_currency(vehicle.price) %></td>
         <td><%= number_to_currency(vehicle.price) %></td>
         <td><%= link_to 'Show', vehicle %></td>
         <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>

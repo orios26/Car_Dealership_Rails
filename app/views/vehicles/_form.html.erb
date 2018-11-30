@@ -17,18 +17,30 @@
   </div>
 
   <div class="field">
-    <%= form.label :color_id %>
-    <%= form.collection_select :color_id, Color.all, :id, :name %>
+    <%= form.label :color %>
+    <%= form.select :color, [['Black'], ['Blue'], ['Red'], ['Gray'], ['Yellow'], ['Green'], ['Orange'], ['White'],
+                             ['Silver'], ['Navy Blue'], ['Gold'], ['Brown'], ['Beige'], ['Light Brown'],
+                             ['Dark Red'], ['Burgundy'], ['Bright Red'], ['Maroon'], ['Purple'], ['Pink'],
+                             ['Metallic White'], ['Metallic Green'], ['Metallic Red'], ['Metallic Blue'],
+                             ['Metallic Black'], ['Metallic Orange'], ['Metallic Grey'], ['Metallic Yellow'],
+                             ['Metallic Gold'], ['Metallic Purple'], ['Gunmetal Grey'], ['Aqua Blue']]  %>
   </div>
 
   <div class="field">
-    <%= form.label :type_id %>
-    <%= form.collection_select :type_id, Type.all, :id, :name %>
+    <%= form.label :make %>
+    <%= form.select :make, [['Acura'], ['Alfa Romeo'], ['Aston Martin'], ['Audi'], ['Bentley'], ['BMW'], ['Bugatti'],
+                            ['Buick'], ['Cadillac'], ['Chevrolet'], ['Chrysler'], ['Citroen'], ['Dodge'], ['Ferrari'],
+                            ['Fiat'], ['Ford'], ['Geely'], ['General Motors'], ['GMC'], ['Honda'], ['Hyundai'],
+                            ['Infiniti'], ['Jaguar'], ['Jeep'], ['Kia'], ['Koenigsegg'], ['Lamborghini'], ['Land Rover'],
+                            ['Lexus'], ['Maserati'], ['Mazda'], ['McLaren'], ['Mercedes-Benz'], ['Mini'], ['Mitsubishi'],
+                            ['Nissan'], ['Pagani'], ['Peugeot'], ['Porsche'], ['Ram'], ['Renault'], ['Rolls Royce'],
+                            ['Saab'], ['Subaru'], ['Suzuki'], ['Tata Motors'], ['Tesla'], ['Toyota'], ['Volkswagen'],
+                            ['Volvo']] %>
   </div>
 
   <div class="field">
-    <%= form.label :model_id %>
-    <%= form.collection_select :model_id, Model.all, :id, :name %>
+    <%= form.label :model %>
+    <%= form.text_field :model %>
   </div>
 
   <div class="field">

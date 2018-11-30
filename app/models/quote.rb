@@ -9,6 +9,7 @@ class Quote < ApplicationRecord
   #setting quote compund period to a class variable
   @@compound = 4
   @@interest_rate = 0.08
+  @balance
 
   def self.compound
     @@compound
@@ -61,7 +62,11 @@ class Quote < ApplicationRecord
   end
 
   def ammortization_payments
-    self.monthly_payment = rounder5(ammoritization_numerator/ ammoritization_denominator)
+    rounder5(ammoritization_numerator/ ammoritization_denominator)
+  end
+
+  def a_interest(amt)
+    amt * i_rate
   end
 
 end

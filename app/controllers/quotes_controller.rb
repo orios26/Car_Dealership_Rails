@@ -4,11 +4,11 @@ class QuotesController < ApplicationController
   # GET /quotes
   # GET /quotes.json
   def index
-    @quotes = Quote.not_sold.paginate(:page => params[:page], per_page: 2)
+    @quotes = Quote.not_sold.paginate(:page => params[:page], per_page: 50)
 
     if params[:search]
       @search_term = params[:search]
-      @quotes = @quotes.search_by(@search_term).paginate(:page => params[:page], per_page: 1)
+      @quotes = @quotes.search_by(@search_term).paginate(:page => params[:page], per_page: 50)
     end
   end
 

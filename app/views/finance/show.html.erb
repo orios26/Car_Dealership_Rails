@@ -1,0 +1,34 @@
+<h1>Finance#show</h1>
+<p>Find me in app/views/finance/show.html.erb</p>
+
+<p>Ammoritization Schedule for Vehicle</p>
+<table>
+  <thead>
+    <tr>
+      <td>Payment</td>
+      <td>Starting Balance</td>
+      <td>Interest</td>
+      <td>Principal</td>
+      <td>Remaining Balance</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% i = 1 %>
+    <% balance = @quote.total_amt%>
+    <% interest = @quote.a_interest(balance)%>
+    <% prin = @quote.ammortization_payments - interest %>
+    <% @quote.number_payments.times do %>
+    <tr>
+      <td><%= i %></td>
+      <td><%= number_to_currency(balance) %></td>
+      <td><%= number_to_currency(interest)%></td>
+      <td><%= number_to_currency(prin) %></td>
+      <td><%= number_to_currency(balance - prin) %></td>
+    </tr>
+    <% balance = (balance - prin) %>
+    <% interest = @quote.a_interest(balance)%>
+    <% prin = @quote.ammortization_payments - interest%>
+    <% i += 1 %>
+    <% end %>
+  </tbody>
+</table>

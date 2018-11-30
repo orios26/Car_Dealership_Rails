@@ -4,20 +4,10 @@ class VehiclesController < ApplicationController
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = Vehicle.available.paginate(:page => params[:page], per_page: 2)
-    #@vehicles = Vehicle.all.paginate(:page =>  params[:page], per_page: 10)
+    @vehicles = Vehicle.available.paginate(:page => params[:page], per_page: 50)
     if params[:search]
       @search_term = params[:search]
-      # @vehicles = Vehicle.find_by_sql("SELECT * FROM vehicles WHERE vin LIKE #{@search_term}
-      # OR
-      # SELECT * FROM vehicles
-      # JOIN colors ON vehicles.color_id = colors_id WHERE colors.name LIKE #{@search_term}
-      # OR
-      # SELECT * FROM vehicles
-      # JOIN models on vehicles.model_id = models_id WHERE models.name LIKE #{@search_term}")
-      @vehicles = Vehicle.v_vin(@search_term).paginate(:page =>  params[:page], per_page: 1)
-    #   @vehicles = Vehicle.v_color(@search_term).paginate(:page => params[:page], per_page: 2)
-    #   # @vehicles = @vehicles.search_by(@search_term)
+      @vehicles = Vehicle.search_by(@search_term).paginate(:page =>  params[:page], per_page: 50)
     end
 
   end
@@ -89,6 +79,6 @@ class VehiclesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_params
-      params.require(:vehicle).permit(:vin, :color_id, :type_id, :model_id, :year, :price, :vehicle_image, :name )
+      params.require(:vehicle).permit(:vin, :color, :car_type, :model, :make, :year, :price, :vehicle_image, :name )
     end
 end
