@@ -15,26 +15,17 @@
  */
 $blue: #3f67a8;
 $hover-blue: #39537a;
-
 html{
  width: 100%;
  height: 100%;
  }
-
- body{
+body{
 margin: 0;
 padding: 0;
 
 background-image: url(audibackground.jpg);
    background-position: cover;
 }
-//
-//
-//
-// .grid-containter{
-//   display: flex;
-//   flex-direction: row;
-//
 
   #header{
    padding-bottom: .5em;
@@ -51,28 +42,44 @@ background-image: url(audibackground.jpg);
   }
   }
 
-//   #vertical-menu{
-//     background: #566884;
-//     width: 08em;
-//     height: 100%;
-//    a{
-//      display: block;
-//      text-align: center;
-//      text-decoration: none;
-//      color: whitesmoke;
-//      font-size: 1.5rem;
-//      padding-top: .5em;
-//      padding-bottom: .5em;
-//      margin-bottom: .3em;
-// }
-//  a:hover{
-// background: $hover-blue;
-// animation-name: mouse_over;
-// animation-duration: .2s;
-// animation-fill-mode: forwards;
-// }
-// }
-// }
+  #vertical-menu{
+    background: #566884;
+    width: 08em;
+    height: 100%;
+   a{
+     display: block;
+     text-align: center;
+     text-decoration: none;
+     color: whitesmoke;
+     font-size: 1.5rem;
+     padding-top: .5em;
+     padding-bottom: .5em;
+     margin-bottom: .3em;
+}
+a:hover{
+background: #5f7ba8;
+animation-name: mouse_over;
+animation-duration: .2s;
+animation-fill-mode: forwards;
+}
+}
+
+.merge{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+#content{
+  background: white;
+  opacity: 0.85;
+  border-radius: 15px;
+  border: solid 1px grey;
+  width: 100%;
+
+
+}
+
 // #content{
 //   background: white;
 //   opacity: 0.85;
@@ -84,13 +91,13 @@ background-image: url(audibackground.jpg);
 // display: none;
 // }
 //
-// @keyframes mouse_over{
-//   0%{
-//
-//   }
-//   100%{
-//     text-decoration: underline;
-//     transform: scale(1.01);
-//     text-shadow: 2px 2px #242d3a;
-//   }
-// }
+@keyframes mouse_over{
+  0%{
+
+  }
+  100%{
+    text-decoration: underline;
+    transform: scale(1.01);
+    text-shadow: 2px 2px #242d3a;
+  }
+}

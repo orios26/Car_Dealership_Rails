@@ -4,22 +4,20 @@
     <title>CisRailsProject</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-  <div class="grid-containter">
     <div id="header">
-    <%= render 'layouts/form_nav' %>
+      <%= render 'layouts/form_nav' %>
     </div>
-    <nav id="vertical-menu">
+    <div class="merge">
+    <div id="vertical-menu">
       <%= render 'layouts/form_menu' %>
       <% if account_signed_in?%>
       <%= render MenuPresenter.which_menu(current_account.role) %>
       <% end %>
-    </nav>
+    </div>
     <div id="content">
     <%= yield %>
     </div>
