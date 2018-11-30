@@ -8,21 +8,15 @@ Rails.application.routes.draw do
   devise_for :accounts, controllers: {
     sessions: 'accounts/sessions'
   }
-  devise_for :users
-  get 'admin' => 'admin#index'
 
   #setting the vehicles index page as the home page
   root 'vehicles#index', as: 'vehicles_index'
 
-  resources :users
-  resources :models
   resources :quotes do
     member do
       get 'calculations'
       end
     end
-  resources :sales_people
-  resources :managers
   resources :vehicles do
     member do
       get 'price'

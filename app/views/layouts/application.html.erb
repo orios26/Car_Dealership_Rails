@@ -11,14 +11,18 @@
 
   <body>
   <div class="grid-containter">
+    <div id="header">
     <%= render 'layouts/form_nav' %>
-    <nav id="menu">
+    </div>
+    <nav id="vertical-menu">
       <%= render 'layouts/form_menu' %>
       <% if account_signed_in?%>
       <%= render MenuPresenter.which_menu(current_account.role) %>
       <% end %>
     </nav>
+    <div id="content">
     <%= yield %>
-  </div>
+    </div>
+    </div>
   </body>
 </html>

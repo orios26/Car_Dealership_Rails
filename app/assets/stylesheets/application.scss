@@ -20,7 +20,7 @@ html{
  width: 100%;
  height: 100%;
  }
-//
+
  body{
 margin: 0;
 padding: 0;
@@ -28,46 +28,69 @@ padding: 0;
 background-image: url(audibackground.jpg);
    background-position: cover;
 }
+//
+//
+//
+// .grid-containter{
+//   display: flex;
+//   flex-direction: row;
+//
 
-.grid-containter{
-display: grid;
-grid-template-columns: auto auto auto;
-grid-template-rows: auto auto auto auto auto;
-.header{
-grid-column: 1/ 4;
- padding-bottom: .5em;
-background: $blue;
-color: whitesmoke;
-font-size: 1rem;
-display: flex;
-  header > div:nth-child(3){
-margin-left: auto;
-}
-a{
-color: whitesmoke !important;
- font-size: 1em !important;
-}
-}
-  .menu{
-    grid-column: 1/2;
-    grid-row: 2/4;
-    background: #566884;
-    display: flex;
-    flex-direction: column;
-   a{
-      text-align: center;
-    text-decoration: none;
-     color: whitesmoke;
-     font-size: 1.5rem;
-      padding-top: .5em;
-     padding-bottom: .5em;
-      margin-bottom: .3em;
-}
- a:hover{
-background: $hover-blue;
-}
-}
-}
-#notice{
-display: none;
-}
+  #header{
+   padding-bottom: .5em;
+  background: $blue;
+  color: whitesmoke;
+  font-size: 1rem;
+  display: flex;
+    header > div:nth-child(3){
+  margin-left: auto;
+  }
+  a{
+  color: whitesmoke !important;
+   font-size: 1em !important;
+  }
+  }
+
+//   #vertical-menu{
+//     background: #566884;
+//     width: 08em;
+//     height: 100%;
+//    a{
+//      display: block;
+//      text-align: center;
+//      text-decoration: none;
+//      color: whitesmoke;
+//      font-size: 1.5rem;
+//      padding-top: .5em;
+//      padding-bottom: .5em;
+//      margin-bottom: .3em;
+// }
+//  a:hover{
+// background: $hover-blue;
+// animation-name: mouse_over;
+// animation-duration: .2s;
+// animation-fill-mode: forwards;
+// }
+// }
+// }
+// #content{
+//   background: white;
+//   opacity: 0.85;
+//   border-radius: 15px;
+//   border: solid 1px grey;
+//
+// }
+// #notice{
+// display: none;
+// }
+//
+// @keyframes mouse_over{
+//   0%{
+//
+//   }
+//   100%{
+//     text-decoration: underline;
+//     transform: scale(1.01);
+//     text-shadow: 2px 2px #242d3a;
+//   }
+// }
