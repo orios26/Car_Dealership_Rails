@@ -42,14 +42,14 @@
 
 <p>
   <strong># of Payments:</strong>
-  <%= @quote.number_payments.to_i %>
+  <%= @quote.number_payments %>
 </p>
 
 <p>
   <strong>Quartely Payment:</strong>
   <%= number_to_currency(@quote.ammortization_payments) %>
 </p>
-<% if current_account.role == 'finance' %>
+<% if current_account.role == 'finance' || current_account.role == 'admin' %>
 <p>Ammoritization Schedule for Vehicle</p>
 <table>
   <thead>

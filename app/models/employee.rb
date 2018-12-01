@@ -8,7 +8,11 @@ class Employee < ApplicationRecord
   belongs_to :manager, :optional => true, :class_name => "Employee"
 
 
-  #Scopes used for collection selects 
+  validates :first_name, presence: true
+  validates :last_name, presence: true 
+
+
+  #Scopes used for collection selects
   scope :is_manager, -> {joins(:employee_type).where.not('employee_types.name' => 'Sales Person')}
   scope :is_sales_manager, -> {joins(:employee_type).where('employee_types.name' => 'Sales Manager')}
   scope :is_sales_person, -> {joins(:employee_type).where('employee_types.name' => 'Sales Person')}

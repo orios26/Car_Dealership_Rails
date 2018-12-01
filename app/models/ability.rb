@@ -2,10 +2,17 @@ class Ability
   include CanCan::Ability
 
   def initialize(account)
-    can :read, Vehicle
-    can :read, Customer
-    can :read, Model
-    can :read, Color
+    case account.role
+    when 'salesp'
+    when 'salesm'
+    when 'finance'
+    when 'inventory'
+    when 'admin'
+      can :manage, :all
+    else
+      can :read, Vehicle
+    end
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

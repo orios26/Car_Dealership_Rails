@@ -1,4 +1,3 @@
-<div class="header">
   <p>
   <% if account_signed_in? %>
   <strong><%=current_account.email%></strong>
@@ -8,4 +7,3 @@
   <%= link_to "Login", new_account_session_path, :class => 'navbar-link' %>
   <% end %>
 </p>
-</div>
