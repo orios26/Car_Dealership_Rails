@@ -4,7 +4,8 @@ class Customer < ApplicationRecord
   #validations for customer
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true, format: {with: URI::MailTo::EMAIL_REGEXP}
+  validates :phone, format: {with: /\d{3}-\d{3}-\d{4}/, message: "Number Invalid"}
 
   #method to return customer full name
   def full_name

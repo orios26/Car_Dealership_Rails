@@ -22,7 +22,7 @@
 
 <p>
   <strong>Phone:</strong>
-  <%= @customer.phone %>
+  <%= number_to_phone(@customer.phone) %>
 </p>
 
 <%= link_to 'Edit', edit_customer_path(@customer) %> |

@@ -2,7 +2,6 @@ var carPrice;
 
 carPrice = function () {
   var selection_id;
-  console.log("received");
   selection_id = $('#quote_vehicle_id').val();
   return $.getJSON('/vehicles/' + selection_id +'/price', {}, function (json, response) {
     return $('#price').text(json['price']);
