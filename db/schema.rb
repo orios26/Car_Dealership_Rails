@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_28_174232) do
+ActiveRecord::Schema.define(version: 2018_12_02_004342) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -90,6 +90,17 @@ ActiveRecord::Schema.define(version: 2018_11_28_174232) do
     t.index ["customer_id"], name: "index_quotes_on_customer_id"
     t.index ["employee_id"], name: "index_quotes_on_employee_id"
     t.index ["vehicle_id"], name: "index_quotes_on_vehicle_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "role"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   create_table "vehicles", force: :cascade do |t|

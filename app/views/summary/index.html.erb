@@ -1,16 +1,16 @@
 <h1>Executive Summary</h1>
 <table>
-  <th>
+  <thead>
     <tr>
-      <td>Total Sales People</td>
-      <td>Total Sales</td>
-      <td>Gross Revenue</td>
-      <td>Net Profit</td>
-      <td>Tax Total</td>
+      <th>Total Sales People</th>
+      <th>Total Sales</th>
+      <th>Gross Revenue</th>
+      <th>Net Profit</th>
+      <th>Tax Total</th>
     </tr>
-  </th>
+  </thead>
   <tbody>
-    <tr>
+    <tr class="<%= cycle('odd', 'even') %>">
       <td><%= @sales_people.size %></td>
       <td><%= @quotes.size%></td>
       <td><%= number_to_currency(@quotes.to_a.sum(&:total_amt))%></td>

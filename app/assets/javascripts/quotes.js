@@ -1,11 +1,12 @@
 var carPrice;
 
 carPrice = function () {
+  var formatter = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'});
   var selection_id;
-  console.log("received");
   selection_id = $('#quote_vehicle_id').val();
   return $.getJSON('/vehicles/' + selection_id +'/price', {}, function (json, response) {
-    return $('#price').text(json['price']);
+    var format_price = formatter.format(json['price']);
+    return $('#price').text(format_price);
   });
 };
 

@@ -42,23 +42,23 @@
 
 <p>
   <strong># of Payments:</strong>
-  <%= @quote.number_payments.to_i %>
+  <%= @quote.number_payments %>
 </p>
 
 <p>
   <strong>Quartely Payment:</strong>
   <%= number_to_currency(@quote.ammortization_payments) %>
 </p>
-<% if current_account.role == 'finance' %>
-<p>Ammoritization Schedule for Vehicle</p>
+<% if current_user.role == 'finance' || current_user.role == 'admin' %>
+<p>Ammoritization Schedule for <%=@quote.vehicle.vehicle_details%></p>
 <table>
   <thead>
     <tr>
-      <td>Payment</td>
-      <td>Starting Balance</td>
-      <td>Interest</td>
-      <td>Principal</td>
-      <td>Remaining Balance</td>
+      <th>Payment</th>
+      <th>Starting Balance</th>
+      <th>Interest</th>
+      <th>Principal</th>
+      <th>Remaining Balance</th>
     </tr>
   </thead>
   <tbody>
@@ -67,7 +67,7 @@
     <% interest = @quote.a_interest(balance)%>
     <% prin = @quote.ammortization_payments - interest %>
     <% @quote.number_payments.times do %>
-    <tr>
+    <tr class="<%= cycle('odd', 'even')%>">
       <td><%= i %></td>
       <td><%= number_to_currency(balance) %></td>
       <td><%= number_to_currency(interest)%></td>

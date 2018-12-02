@@ -21,12 +21,12 @@
 
   <tbody>
     <% @customers.each do |customer| %>
-      <tr>
+      <tr class="<%= cycle('odd', 'even')%>">
         <td><%= customer.last_name %></td>
         <td><%= customer.first_name %></td>
         <td><%= customer.address %></td>
         <td><%= customer.email %></td>
-        <td><%= customer.phone %></td>
+        <td><%= number_to_phone(customer.phone) %></td>
         <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
         <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
