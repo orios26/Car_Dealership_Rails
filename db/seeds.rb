@@ -5,7 +5,7 @@
     Quote.destroy_all
     Employee.destroy_all
     EmployeeType.destroy_all
-    Account.destroy_all
+    User.destroy_all
     Vehicle.destroy_all
     #
     # #Employee Type seeds
