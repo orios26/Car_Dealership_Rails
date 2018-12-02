@@ -21,7 +21,7 @@
 
   <tbody>
     <% @quotes.each do |quote| %>
-      <tr>
+      <tr class="<%= cycle('odd', 'even') %>">
         <td><%= quote.vehicle.vehicle_details %></td>
         <td><%= quote.customer.full_name %></td>
         <td><%= quote.employee.full_name %></td>

@@ -20,7 +20,7 @@
 
   <tbody>
     <% @employees.each do |employee| %>
-      <tr>
+      <tr class="<%= cycle('odd', 'even')%>">
         <td><%= employee.last_name %></td>
         <td><%= employee.first_name %></td>
         <td><%= employee.employee_type.name %></td>
