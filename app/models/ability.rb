@@ -22,7 +22,7 @@ class Ability
     end
     if user.role == 'inventory'
       can :manage, Vehicle
-      can :read, [Employee, Customer, Quotes]
+      can :read, [Employee, Customer, Quote]
       can :update, Employee
     end
   end

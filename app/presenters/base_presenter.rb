@@ -1,11 +1,8 @@
 class BasePresenter
 
   def initialize(model, view)
-    @view = view
-    super(model)
-  end
-
-  def h  @view
+    super()
+    @model = model
   end
 
 end
