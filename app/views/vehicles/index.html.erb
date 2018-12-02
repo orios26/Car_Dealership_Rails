@@ -22,7 +22,7 @@
 
   <tbody>
     <% @vehicles.each do |vehicle| %>
-      <tr>
+      <tr class="<%= cycle('odd', 'even') %>">
         <td><%= vehicle.vin %></td>
         <td><%= vehicle.color %></td>
         <td><%= vehicle.make %></td>

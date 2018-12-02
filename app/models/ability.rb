@@ -1,17 +1,33 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(account)
-    case account.role
-    when 'salesp'
-    when 'salesm'
-    when 'finance'
-    when 'inventory'
-    when 'admin'
+  def initialize(user)
+    if user.present?
+    if user.role == 'admin'
       can :manage, :all
-    else
-      can :read, Vehicle
     end
+    if user.role == 'salesm'
+      can :read, [Employee, Quote, Vehicle]
+      can :update,  [Employee, Quote, Vehicle]
+    end
+    if user.role == 'salesp'
+      can :create, Quote
+      can :read, [Customer, Quote, Vehicle]
+      can :update, [Customer, Quote, Vehicle]
+    end
+    if user.role == 'finance'
+      can :manage, [Customer, Quote]
+      can :read, [Vehicle, Employee]
+      can :update, Employee
+    end
+    if user.role == 'inventory'
+      can :manage, Vehicle
+      can :read, [Employee, Customer, Quotes]
+      can :update, Employee
+    end
+  end
+else
+  can :read, Vehicle
 
     # Define abilities for the passed in user here. For example:
     #

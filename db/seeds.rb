@@ -26,13 +26,12 @@
     cristina = Employee.create!(last_name: 'Rodriguez', first_name: 'Cristina', employee_type: salesperson, manager: phil)
     patricia = Employee.create!(last_name: 'Abaza', first_name: 'Shaheen',employee_type: salesperson, manager: phil)
 
-    Account.create!([
-      {email: 'dougdimmadome@vehicyou.com', password: 'dougdoug', password_confirmation: 'dougdoug', role: 'admin'},
-      {email: 'sallysales@vehicyou.com', password: 'salesale', password_confirmation: 'salesale', role: 'salesp'},
-      {email: 'philc@vehicyou.com', password: 'icanfeelit', password_confirmation: 'icanfeelit', role: 'salesm'},
-      {email: 'clarar@vehicyou.com', password: 'financee', password_confirmation: 'financee', role: 'finance'},
-      {email: 'patd@vehicyou.com', password: 'inventory', password_confirmation: 'inventory', role: 'inventory'},
-      {email: 'ahmadskaikay@yahoo.com', password: 'sky12424', password_confirmation: 'sky12424', role: 'admin'}
+    User.create!([
+      {email: 'admin@hotcars.net', password: 'adminadmin', password_confirmation: 'adminadmin', role: 'admin'},
+      {email: 'salesp@hotcars.net', password: 'salespsalesp', password_confirmation: 'salespsalesp', role: 'salesp'},
+      {email: 'salesm@hotcars.net', password: 'icanfeelit', password_confirmation: 'icanfeelit', role: 'salesm'},
+      {email: 'finance@hotcars.net', password: 'financefinance', password_confirmation: 'financefinance', role: 'finance'},
+      {email: 'inventory@hotcars.net', password: 'inventoryinventory', password_confirmation: 'inventoryinventory', role: 'inventory'}
       ])
 
     #Customer seeds

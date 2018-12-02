@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
@@ -14,8 +15,8 @@
     <div class="merge">
     <div id="vertical-menu">
       <%= render 'layouts/form_menu' %>
-      <% if account_signed_in?%>
-      <%= render MenuPresenter.which_menu(current_account.role) %>
+      <% if user_signed_in?%>
+      <%= render MenuPresenter.which_menu(current_user.role) %>
       <% end %>
     </div>
     <div id="content">

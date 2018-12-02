@@ -1,4 +1,5 @@
 class VehiclesController < ApplicationController
+  load_and_authorize_resource :notice => "Improper credentials"
   before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
 
   # GET /vehicles

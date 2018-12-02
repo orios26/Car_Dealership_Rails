@@ -21,7 +21,7 @@
 
   <tbody>
     <% @customers.each do |customer| %>
-      <tr>
+      <tr class="<%= cycle('odd', 'even')%>">
         <td><%= customer.last_name %></td>
         <td><%= customer.first_name %></td>
         <td><%= customer.address %></td>

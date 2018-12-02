@@ -9,7 +9,7 @@ class Quote < ApplicationRecord
   #setting quote compund period to a class variable
   @@compound = 4
   @@interest_rate = 0.08
-  @balance
+
 
   def self.compound
     @@compound

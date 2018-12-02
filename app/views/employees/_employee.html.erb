@@ -1,4 +1,4 @@
-<table>
+<table class="report">
   <thead>
     <% if employee.employee_type.name == 'Sales Manager' %>
     <tr>
@@ -13,7 +13,7 @@
   </thead>
   <% end %>
   <tbody>
-    <tr>
+    <tr class="odd">
       <td><%= employee.full_name %></td>
       <% if employee.employee_type.name == 'Sales Manager' %>
       <td><%= employee.subordinates.size %></td>
