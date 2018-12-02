@@ -21,18 +21,22 @@
   </thead>
 
   <tbody>
-    <% @vehicles.each do |vehicle| %>
-      <tr class="<%= cycle('odd', 'even') %>">
-        <td><%= vehicle.vin %></td>
-        <td><%= vehicle.color %></td>
-        <td><%= vehicle.make %></td>
-        <td><%= vehicle.model %></td>
-        <td><%= vehicle.year %></td>
-        <td><%= number_to_currency(vehicle.price) %></td>
-        <td><%= link_to 'Show', vehicle %></td>
-        <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
-        <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% cache @vehicles do %>
+      <% @vehicles.each do |vehicle| %>
+        <% cache vehicle do %>
+        <tr class="<%= cycle('odd', 'even') %>">
+          <td><%= vehicle.vin %></td>
+          <td><%= vehicle.color %></td>
+          <td><%= vehicle.make %></td>
+          <td><%= vehicle.model %></td>
+          <td><%= vehicle.year %></td>
+          <td><%= number_to_currency(vehicle.price) %></td>
+          <td><%= link_to 'Show', vehicle %></td>
+          <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
+          <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      <% end %>
     <% end %>
   </tbody>
 </table>
