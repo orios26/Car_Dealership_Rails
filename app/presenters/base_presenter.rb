@@ -1,11 +1,9 @@
 class BasePresenter
 
-  def initialize(model, view)
-    @view = view
-    super(model)
-  end
+  private
 
-  def h  @view
+  def h
+    ApplicationController.helpers 
   end
 
 end

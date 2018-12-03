@@ -1,7 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-a4:
-  name: audi a4
-
-acura:
-  name: acura TLX
