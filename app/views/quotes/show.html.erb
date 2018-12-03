@@ -36,6 +36,11 @@
 </p>
 
 <p>
+  <strong>Total Amount</strong>
+  <%= number_to_currency(@quote.total_amt) %>
+</p>
+
+<p>
   <strong>Term:</strong>
   <%= @quote.term.to_i %>
 </p>
