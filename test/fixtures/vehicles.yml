@@ -3,7 +3,6 @@
 audia:
   vin: 145LFK4
   color: blue
-  type: coupe
   model: a4
   year: 2016
   price: 20000.00
@@ -11,7 +10,6 @@ audia:
 acurat:
   vin: JK6549LN
   color: red
-  type: sedan
   model: acura
   year: 2015
   price: 20998.00
