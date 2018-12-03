@@ -29,7 +29,7 @@
     User.create!([
       {email: 'admin@hotcars.net', password: 'adminadmin', password_confirmation: 'adminadmin', role: 'admin'},
       {email: 'salesp@hotcars.net', password: 'salespsalesp', password_confirmation: 'salespsalesp', role: 'salesp'},
-      {email: 'salesm@hotcars.net', password: 'salesmsalesm', password_confirmation: 'icanfeelit', role: 'salesm'},
+      {email: 'salesm@hotcars.net', password: 'salesmsalesm', password_confirmation: 'salesmsalesm', role: 'salesm'},
       {email: 'finance@hotcars.net', password: 'financefinance', password_confirmation: 'financefinance', role: 'finance'},
       {email: 'inventory@hotcars.net', password: 'inventoryinventory', password_confirmation: 'inventoryinventory', role: 'inventory'}
       ])
