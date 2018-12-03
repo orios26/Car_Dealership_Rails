@@ -7,8 +7,8 @@ class Ability
       can :manage, :all
     end
     if user.role == 'salesm'
-      can :read, [Employee, Quote, Vehicle]
-      can :update,  [Employee, Quote, Vehicle]
+      can :read, [Employee, Quote, Vehicle, Customer]
+      can :update,  [Employee, Quote, Vehicle, Customer]
     end
     if user.role == 'salesp'
       can :create, Quote
